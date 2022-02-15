@@ -1,0 +1,26 @@
+:root {
+  --white: #fff;
+  --offWhite: #f4f4f4;
+  --darkBlue: #13293d;
+  --blue: #425aa8;
+  --lightBlue: #8394ca;
+  --paleBlue: #dfe4e9;
+  --lightGray: #cbcbcb;
+  --black: #000;
+  --darkGray: #969595;
+  --orange: #ef672a;
+  --green: #74cd63;
+  --fontSuperbig: 50px;
+  --fontBig: 30px;
+  --fontMedium: 25px;
+  --fontRegular: 18px;
+  --fontNormal: 16px;
+  --fontSmall: 14px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}

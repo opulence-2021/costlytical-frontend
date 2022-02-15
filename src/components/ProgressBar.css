@@ -1,0 +1,7 @@
+#progressBar {
+  display: block;
+  background-color: var(--lightGray);
+  border-radius: 22px;
+  width: 95%;
+  height: 70px;
+}

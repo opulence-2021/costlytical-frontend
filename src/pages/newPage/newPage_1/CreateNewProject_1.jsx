@@ -1,0 +1,21 @@
+import React from "react";
+// Styles
+import "./CreateNewProject_1.css";
+// Components
+import NewSideBar from "../NewSideBar";
+import NewCard from "./NewCard_1";
+
+const CreateNewProject_1 = () => {
+  return (
+    <div className="newPage">
+      <div id="newSideBar">
+        <NewSideBar />
+      </div>
+      <div id="cardBackground">
+        <NewCard />
+      </div>
+    </div>
+  );
+};
+
+export default CreateNewProject_1;

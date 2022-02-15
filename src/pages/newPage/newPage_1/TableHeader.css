@@ -1,0 +1,14 @@
+#headingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 95%;
+}
+
+.heading {
+  color: var(--black);
+  font-size: var(--fontRegular);
+  font-weight: 400;
+  margin-left: 6%;
+  width: 20%;
+}

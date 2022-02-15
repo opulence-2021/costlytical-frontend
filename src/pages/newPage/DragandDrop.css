@@ -1,0 +1,46 @@
+#dopBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  color: var(--black);
+  background-color: var(--paleBlue);
+  height: 320px;
+  width: 700px;
+  border: 2px dashed var(--black);
+  border-radius: 15px;
+  transition: background-color 200ms;
+}
+
+#leftText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 30px;
+}
+
+#rowOne {
+  margin-bottom: 30px;
+  font-size: var(--fontNormal);
+  font-weight: 600;
+}
+
+#rowTwo {
+  margin-bottom: 30px;
+}
+
+#rowThree {
+  font-size: var(--fontSmall);
+  margin-top: 10px;
+}
+
+#backgroundImage {
+  width: 300px;
+  height: auto;
+  margin-left: 110px;
+}
+
+#dopBox:hover {
+  background-color: #d1cfcf;
+}

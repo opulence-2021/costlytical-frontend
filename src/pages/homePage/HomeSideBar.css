@@ -1,0 +1,111 @@
+/* side bar styles */
+#sideBar {
+  width: 18vw;
+  height: 100vh;
+  background-color: var(--darkBlue);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* logo styles */
+#logo {
+  width: 50%;
+  height: auto;
+  border-radius: 50%;
+  margin-top: 30px;
+  margin-left: 20%;
+}
+
+/* nav bar styles */
+#navBar {
+  display: flex;
+  flex-direction: column;
+  margin-top: 70px;
+  width: 100%;
+}
+
+/* nav item styles */
+.navItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--darkBlue);
+  width: 100%;
+  height: 55px;
+  border-bottom: 1px solid var(--white);
+  border-top: 1px solid var(--white);
+}
+
+.navHeading {
+  font-size: var(--fontRegular);
+  font-weight: 350;
+}
+
+.navImage {
+  height: 30px;
+  width: auto;
+  margin-left: 35px;
+  margin-right: 30px;
+}
+
+.navItem:hover {
+  color: var(--orange);
+}
+
+.navItem:hover .navImage {
+  filter: invert(53%) sepia(86%) saturate(3249%) hue-rotate(347deg)
+    brightness(99%) contrast(89%);
+}
+
+/* nav item heighlights */
+#navHome {
+  border-top: 2px solid var(--orange);
+  border-bottom: 1px solid var(--orange);
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+#navNew {
+  border-top: 1px solid var(--orange);
+  color: var(--white);
+}
+#navNew:hover {
+  color: var(--orange);
+}
+
+#selectBlock {
+  display: block;
+  height: 55px;
+  width: 2%;
+  background-color: var(--orange);
+}
+
+#navPrevious {
+  border-bottom: 2px solid var(--white);
+}
+
+/* user details bar styles */
+#userDetails {
+  display: block;
+  width: 90%;
+  height: 70px;
+  background-color: var(--lightGray);
+  border-radius: 5px;
+  margin-top: 100px;
+}
+
+@media screen and (max-width: 1500px) {
+  /* #sideBar {
+      display: none;
+    } */
+}

@@ -1,0 +1,25 @@
+#textArea {
+  color: var(--black);
+}
+
+#textAreaLabel {
+  font-size: var(--fontRegular);
+  font-weight: 700;
+}
+
+#nameFiled {
+  background-color: transparent;
+  font-size: var(--fontSmall);
+  font-weight: 300;
+  margin-top: 15px;
+  padding-bottom: 3px;
+  border: none;
+  border-bottom: 1px solid var(--black);
+  width: 300px;
+  transition: padding 500ms, border 600ms;
+}
+
+#textArea:hover #nameFiled {
+  border-bottom: 2px solid var(--black);
+  padding-left: 10px;
+}

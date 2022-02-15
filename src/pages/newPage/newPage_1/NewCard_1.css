@@ -1,0 +1,104 @@
+#cardBackground_1 {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--offWhite);
+  width: 80vw;
+  height: 94%;
+  border-radius: 25px;
+}
+
+#pageHeading {
+  margin-top: 20px;
+  margin-left: 25px;
+  margin-bottom: 5px;
+}
+
+#subHeading {
+  margin-left: 50px;
+  margin-bottom: 35px;
+}
+
+#progressBar {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#tableHeader {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  margin-top: 80px;
+}
+
+#models {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  margin-top: 30px;
+}
+
+#textArea {
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+#buttonContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-top: 80px;
+}
+
+#backBtn {
+  margin-left: 4%;
+}
+
+#placeBtn {
+  margin-left: 77%;
+}
+
+#confirmBox {
+  height: 300px;
+  width: 500px;
+  z-index: 3;
+  border-radius: 15px;
+  background-color: #f6f6f6;
+  position: absolute;
+  left: 55%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  display: none;
+}
+
+#confirmBoxContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#tickImage {
+  height: 150px;
+  width: 180px;
+}
+
+#textbar {
+  color: var(--black);
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  font-size: 14px;
+}
+
+#overlay {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}

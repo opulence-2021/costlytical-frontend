@@ -1,0 +1,45 @@
+#modelContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 95%;
+  height: 60px;
+  background-color: var(--white);
+  border-radius: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+/* font weight not working check */
+.modelItem {
+  color: var(--black);
+  text-align: left;
+  font-size: var(--fontNormal);
+  font-weight: 300;
+  margin-left: 5%;
+  width: 20%;
+}
+
+#materialSelect {
+  border: none;
+  width: 40%;
+  font-size: var(--fontNormal);
+  font-weight: 600;
+}
+
+#layerSelect {
+  border: none;
+  width: 50%;
+  font-size: var(--fontNormal);
+  font-weight: 600;
+}
+
+#quantitySelect {
+  border: none;
+  width: 30%;
+  font-size: var(--fontNormal);
+  font-weight: 600;
+}

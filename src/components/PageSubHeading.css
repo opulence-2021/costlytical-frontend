@@ -1,0 +1,5 @@
+#subHeading {
+  color: var(--black);
+  font-size: var(--fontRegular);
+  font-weight: 300;
+}

@@ -1,0 +1,20 @@
+#customButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 114px;
+  height: 32px;
+  background-color: var(--blue);
+  border-radius: 8px;
+  transition: background-color 200ms;
+}
+
+#text {
+  color: var(--white);
+  font-size: var(--fontSmall);
+  font-weight: 400;
+}
+
+#customButton:hover {
+  background-color: var(--lightBlue);
+}

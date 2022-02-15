@@ -1,0 +1,14 @@
+#cardBackground {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--offWhite);
+  width: 80vw;
+  min-height: 94%;
+  border-radius: 25px;
+}
+
+#pageHeading {
+  margin-top: 20px;
+  margin-left: 25px;
+  margin-bottom: 20px;
+}

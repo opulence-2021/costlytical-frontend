@@ -1,0 +1,36 @@
+#cardBackground {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--offWhite);
+  width: 80vw;
+  height: 94%;
+  border-radius: 25px;
+}
+
+#pageHeading {
+  margin-top: 20px;
+  margin-left: 25px;
+  margin-bottom: 20px;
+}
+
+#progressBar {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#projectName {
+  margin-top: 40px;
+  margin-left: 70px;
+}
+
+#dragandDrop {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#nextBtn {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: 100px;
+}
