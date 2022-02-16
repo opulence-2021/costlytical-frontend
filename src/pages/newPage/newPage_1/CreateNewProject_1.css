@@ -1,0 +1,7 @@
+.newPage_1 {
+  background-color: var(--darkBlue);
+  color: var(--white);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}

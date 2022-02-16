@@ -7,7 +7,7 @@ import NewCard from "./NewCard_1";
 
 const CreateNewProject_1 = () => {
   return (
-    <div className="newPage">
+    <div className="newPage_1">
       <div id="newSideBar">
         <NewSideBar />
       </div>
