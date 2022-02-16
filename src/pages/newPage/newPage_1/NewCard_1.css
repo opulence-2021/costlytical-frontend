@@ -3,7 +3,7 @@
   flex-direction: column;
   background-color: var(--offWhite);
   width: 80vw;
-  height: 94%;
+  min-height: 94vh;
   border-radius: 25px;
 }
 
@@ -47,6 +47,7 @@
   flex-direction: row;
   align-items: flex-start;
   margin-top: 80px;
+  margin-bottom: 60px;
 }
 
 #backBtn {
@@ -54,9 +55,10 @@
 }
 
 #placeBtn {
-  margin-left: 77%;
+  margin-left: 74%;
 }
 
+/* confirm pop-up box styles */
 #confirmBox {
   height: 300px;
   width: 500px;
@@ -91,9 +93,10 @@
   font-size: 14px;
 }
 
+/* page opacity control overlay styles */
 #overlay {
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vmax;
+  min-width: 100%;
   position: absolute;
   left: 50%;
   top: 50%;
