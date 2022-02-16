@@ -20,6 +20,6 @@
 }
 
 #textArea:hover #nameFiled {
-  border-bottom: 2px solid var(--black);
+  border-bottom: 1px solid var(--darkGray);
   padding-left: 10px;
 }
