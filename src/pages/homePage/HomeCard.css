@@ -1,7 +1,9 @@
 #cardBackground {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: flex-start;
   background-color: var(--offWhite);
+  color: var(--black);
   width: 80vw;
   min-height: 94%;
   border-radius: 25px;
@@ -12,3 +14,52 @@
   margin-left: 25px;
   margin-bottom: 20px;
 }
+
+  #ContentX {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: var(--lightGray);
+    border-radius: 22px;
+    width: 95%;
+    height: 520px;
+    margin-top: 20px;
+    margin-left: 25px;
+    
+  }
+
+  #ContentY {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: var(--white);
+    border-radius: 22px;
+    width: 45%;
+    height: 469px;
+    margin-top: 26px;
+    margin-left: 25px;
+  }
+
+  #rowOne {
+    margin-top: 50px;
+    margin-left: 40px;
+    margin-bottom: 30px;
+  }
+
+  #Button{
+    margin-top: 50px;
+    margin-left: 1000px;
+    margin-bottom: 30px;
+  }
+  
+  #rowTwo {
+    margin-bottom: 30px;
+  }
+  
+  #svgImg {
+    width: 500px;
+    height: auto;
+    margin-left: 600px;
+  }
+
+
