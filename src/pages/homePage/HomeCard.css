@@ -1,7 +1,9 @@
 #cardBackground {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: flex-start;
   background-color: var(--offWhite);
+  color: var(--black);
   width: 80vw;
   min-height: 94%;
   border-radius: 25px;
