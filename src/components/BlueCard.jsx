@@ -1,4 +1,6 @@
 import React from "react";
+//routing link (to call the other pages)
+import { Link } from "react-router-dom";
 //styles
 import "./BlueCard.css";
 import stages from "../storyImages/stages.svg";
@@ -9,11 +11,13 @@ const BlueCard = () => {
       <div id="ContentY">
         <h2 id="lineOne">
         Generate costs and submit 
-        an order—with just one click
+        an order with just one click
         </h2>
-        <div id="longButtonBlue">
-         <div id="textSize">Create A New Project</div>
-        </div>
+        <Link to= "/new">
+          <div id="longButtonBlue">
+            <div id="textSize">Create A New Project</div>
+          </div>
+        </Link>
         <p id="lineTwo">
         Start off by submitting a file and generating 
         an estimate of it’s price through a new project.

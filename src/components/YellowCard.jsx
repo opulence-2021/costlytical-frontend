@@ -1,4 +1,7 @@
 import React from "react";
+//routing link (to call the other pages)
+import { Link } from "react-router-dom";
+
 //styles
 import "./YellowCard.css";
 import messenger from "../storyImages/messenger.svg";
@@ -14,9 +17,11 @@ const YellowCard = () => {
         Check out what orders you’ve
         placed can be confirmed
         </h2>
-        <div id="longButtonYellow">
-         <div id="textSize">Pending Confirmation</div>
-        </div>
+        <Link to= "/pending">
+          <div id="longButtonYellow">
+            <div id="textSize">Pending Confirmation</div>
+          </div>
+        </Link>
         <p id="lineTwo">
         View the orders you have placed and are pending on a response from you.
         </p>
