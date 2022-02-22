@@ -10,7 +10,7 @@ import PurpleCard from "../../components/PurpleCard";
 const HomeCardBackground = () => {
   return (
     <div id="cardBackground">
-      {/* content of the page comes here */}
+      {/* Content of the page comes here */}
       <div id="pageHeading">
         <PageHeading pagename="Welcome User!" />
       </div>
