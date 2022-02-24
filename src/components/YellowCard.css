@@ -1,79 +1,77 @@
 #ContentX {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    background-color: var(--lightGray);
-    border-radius: 22px;
-    width: 95%;
-    height: 520px;
-    margin-top: 20px;
-    margin-left: 25px;
-    
-  }
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: var(--lightGray);
+  border-radius: 22px;
+  width: 95%;
+  height: 520px;
+  margin-top: 20px;
+  margin-left: 25px;
+}
 
-  #ContentY {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: var(--white);
-    border-radius: 22px;
-    width: 45%;
-    height: 469px;
-    margin-top: 26px;
-    margin-left: 25px;
-  }
+#ContentY {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: var(--white);
+  border-radius: 22px;
+  width: 45%;
+  height: 469px;
+  margin-top: 26px;
+  margin-left: 25px;
+}
 
-  #lineOne {
-    text-align: center;
-    font-weight: 400px;
-    font-size: var(--fontMedium);
-    margin-top: 60px;
-    margin-left: 10px;
-    margin-right: 10px;    
-    margin-bottom: 50px;
+#lineOne {
+  text-align: center;
+  font-weight: 400px;
+  font-size: var(--fontMedium);
+  margin-top: 60px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 50px;
+}
 
-  }
+#buttonAlign {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
 
-  #buttonAlign{
-    margin-top: 50px;
-    margin-bottom: 50px;
-  }
-  
-  #lineTwo {
-    text-align: center;
-    font-size: 20px;
-    margin-top: 30px;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 50px;
-  }
-  
-  #svgImg {
-    width: 500px;
-    height: auto;
-    margin-left: 60px;
-  }
-  
-  #longButtonYellow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    width: 280px;
-    height: 60px;
-    background-color: #E5B836;
-    border-radius: 8px;
-    transition: background-color 200ms;
-  }
-  
-  #textSize {
-    color: var(--white);
-    font-weight: 525px;
-    font-size: 20px;
-  }
-  
-  #longButtonYellow:hover {
-    background-color: #b99833;
-  }
+#lineTwo {
+  text-align: center;
+  font-size: 20px;
+  margin-top: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 50px;
+}
+
+#svgImg {
+  width: 500px;
+  height: auto;
+  margin-left: 60px;
+}
+
+#longButtonYellow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 280px;
+  height: 60px;
+  background-color: #e5b836;
+  border-radius: 8px;
+  transition: background-color 200ms;
+}
+
+#textSize {
+  color: var(--white);
+  font-weight: 525px;
+  font-size: 20px;
+}
+
+#longButtonYellow:hover {
+  background-color: #b99833;
+}

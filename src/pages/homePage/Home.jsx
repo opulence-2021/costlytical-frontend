@@ -11,7 +11,7 @@ const Home = () => {
       <div id="sideBar">
         <HomeSideBar />
       </div>
-      <div id="cardBackground">
+      <div id="cardBackground_home">
         <HomeCard />
       </div>
     </div>
