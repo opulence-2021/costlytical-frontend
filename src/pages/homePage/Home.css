@@ -1,7 +1,16 @@
 .home {
   background-color: var(--darkBlue);
   color: var(--white);
-  height: 100vh;
+  height: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+}
+
+#sideBar {
+  margin-top: 10px;
+}
+
+#cardBackground_home {
+  margin-top: 50px;
+  margin-left: 18vw;
 }
