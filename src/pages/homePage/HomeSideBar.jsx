@@ -14,12 +14,12 @@ const HomeSideBar = () => {
   return (
     <div id="sideBar">
       {/* <div id="logo">CostlyticalLogo.png</div> */}
-      <Link to="/">
+      <Link to="/home">
         <img src={logo} id="logo" alt="Costlytical logo" />
       </Link>
       <div id="navBar">
         {/* nav items */}
-        <Link to="/">
+        <Link to="/home">
           <div className="navItem" id="navHome">
             <div id="selectBlock"></div>
             <img src={home_o} class="navImage" alt="home" />
