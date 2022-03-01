@@ -14,12 +14,12 @@ const NewSideBar = () => {
   return (
     <div id="newSideBar">
       {/* <div id="logo">CostlyticalLogo.png</div> */}
-      <Link to="/">
+      <Link to="/home">
         <img src={logo} id="logo" alt="Costlytical logo" />
       </Link>
       <div id="navBar">
         {/* nav items */}
-        <Link to="/">
+        <Link to="/home">
           <div className="navItem" id="navHome_1">
             <img src={home} class="navImage" alt="home" />
             <h2 className="navHeading">Home</h2>

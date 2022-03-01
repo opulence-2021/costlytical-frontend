@@ -68,7 +68,7 @@ const NewCard_1 = () => {
     //validate inputs and API request to upload settings, confirmation?
     document.querySelector("#overlay").style.display = "none";
     document.querySelector("#confirmBox").style.display = "none";
-    history.push("/");
+    history.push("/home");
   };
 
   return (
