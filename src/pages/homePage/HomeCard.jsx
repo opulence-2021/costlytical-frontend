@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { URL } from "../../api";
 // Styles
 import "./HomeCard.css";
 //components
@@ -11,7 +12,7 @@ import PurpleCard from "../../components/PurpleCard";
 
 const HomeCardBackground = () => {
   //API URL
-  const url = "http://localhost:5000/userName";
+  const url = `${URL}/userName`;
 
   //method to get user name : update!
   const [userName, setUserName] = useState("User");
