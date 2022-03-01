@@ -12,6 +12,7 @@ import CustomButton from "../../components/CustomButton";
 
 const NewCard = () => {
   const history = useHistory();
+  let projectName = "project";
 
   //handling next button press
   const handdlNextClick = () => {
@@ -19,6 +20,11 @@ const NewCard = () => {
     // alert("pressed next btn");
     history.push("/new/request");
   };
+
+  //geting project name from the text fileld
+  function getProjectName(project_name) {
+    projectName = project_name;
+  }
 
   return (
     <div id="cardBackground">
@@ -33,6 +39,7 @@ const NewCard = () => {
         <TextFiled
           labelname="Give your awsome project a name"
           placeholderText="Awsome project"
+          getData={getProjectName}
         />
       </div>
       <div id="dragandDrop">
