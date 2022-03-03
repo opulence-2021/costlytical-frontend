@@ -1,0 +1,26 @@
+#SignintextFiled {
+    color: var(--black);
+  }
+  
+  #textBoxLabelSignin {
+    font-size: var(--fontRegular);
+    font-weight: 700;
+  }
+  
+  #nameFieldSignin {
+    background-color: transparent;
+    font-size: var(--fontSmall);
+    font-weight: 300;
+    margin-top: 15px;
+    padding-bottom: 3px;
+    border: none;
+    border-bottom: 1px solid var(--black);
+    width: 200px;
+    transition: padding 500ms, border 600ms;
+  }
+  
+  #SignintextFiled:hover #nameFieldSignin {
+    border-bottom: 1px solid var(--darkGray);
+    padding-left: 10px;
+  }
+  

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 // Components
 import Home from "./pages/homePage/Home";
-import Login from "./pages/loginPage/loginPage";
+import Login from "./pages/loginPage/LoginPage";
 import CreateNewProject from "./pages/newPage/CreateNewProject";
 import CreateNewProject_1 from "./pages/newPage/newPage_1/CreateNewProject_1";
 import PendingConfirmation from "./pages/PendingConfirmation";
