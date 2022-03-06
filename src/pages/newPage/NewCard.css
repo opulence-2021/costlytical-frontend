@@ -18,19 +18,44 @@
   margin-right: auto;
 }
 
+/* project name css */
+#getProjectName {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-left: 3%;
+  margin-top: 3%;
+}
+
+#createProject {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  margin-right: 100px;
+}
+
 #projectName {
-  margin-top: 40px;
   margin-left: 70px;
 }
 
-#dragandDrop {
-  margin-top: 50px;
+#createProjectBtn {
+  margin-top: 30px;
+}
+
+#projectNameImg {
+  width: 35vw;
+}
+
+/* file upload css */
+#secodaryContent {
+  display: none;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 7vh;
 }
 
 #nextBtn {
-  margin-top: 30px;
-  margin-left: auto;
-  margin-right: 100px;
+  margin-top: 70px;
+  margin-left: 100%;
 }
