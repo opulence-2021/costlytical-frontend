@@ -21,38 +21,61 @@ const LoginCard = () => {
   
     //validator function
     const validate = (valueE,valueP) => {
-        let pass = 1;
-        let ema = 1;
-        if (emailReg.test(valueE) == 0) {
+        let passCheck = true;
+        let emaCheck = true;
+
+        //grabs the value of the email
+        let Mail = valueE;
+        //grabs the value of the password
+        let Passs = valueP;
+
+        //email checker
+        if (Mail == "") {
             alert.show('Incorrect Email Format!');
-            ema = 0;
-        }
-        if (test(valueP) == 0) {
-            alert.show('Password must be entered!');
-            pass = 0;
+            emaCheck = false;
+        } else if (Mail.length < 10) {
+            alert.show('Incorrect Email Format!');
+            emaCheck = false;
+        } else if (!(Mail.match(emailReg))) {
+            alert.show('Incorrect Email Format!');
+            emaCheck = false;
         } else {
-            ema = 1;
-            pass = 1;
+            emaCheck = true;
         }
-        if (ema && pass == 1){
+        console.log(Mail);
+        console.log(emaCheck);
+        //password checker
+        if (emaCheck) {
+            if (Passs == ""){
+                alert.show('Password must be entered!');
+                passCheck = false;
+            } else if (Passs.length < 10 ){
+                alert.show('Password must be entered!');
+                passCheck = false;
+            } else {
+                passCheck = true;
+            }
+        } 
+
+        if (emaCheck == true && passCheck == true){
             history.push("/home");
         }
     }
 
     //handling the signIn button press
     const handleSigninClick = () => {
-        validate(geteMail, getPasswrd);
+        validate(eMail, passWord);
     };
   
     //gets the user's name from the text field
     function geteMail(em) {
         eMail = em;
-        console.log(eMail);
+        return eMail;
     }
     //gets the password from the text field
     function getPasswrd(passwrd) {
         passWord = passwrd;
-        console.log(passwrd);
+        return passWord;
     }
   
     return (
