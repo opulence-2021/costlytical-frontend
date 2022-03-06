@@ -1,4 +1,6 @@
-import React from "react";
+import React from 'react';
+//alerts
+import { useAlert } from 'react-alert';
 //Routing
 import { useHistory } from "react-router-dom";
 // Styles
@@ -9,20 +11,43 @@ import SignInTextField from "../../components/SignInTextField";
 import CustomButton from "../../components/CustomButton";
 
 const LoginCard = () => {
+    const alert = useAlert()
     const history = useHistory();
-    let userName = "user";
+    let eMail = "email";
     let passWord = "pass";
+    //email regex
+    const emailReg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
   
+    //validator function
+    const validate = (valueE,valueP) => {
+        let pass = 1;
+        let ema = 1;
+        if (emailReg.test(valueE) == 0) {
+            alert.show('Incorrect Email Format!');
+            ema = 0;
+        }
+        if (test(valueP) == 0) {
+            alert.show('Password must be entered!');
+            pass = 0;
+        } else {
+            ema = 1;
+            pass = 1;
+        }
+        if (ema && pass == 1){
+            history.push("/home");
+        }
+    }
+
     //handling the signIn button press
     const handleSigninClick = () => {
-      // alert("pressed signin button");
-      history.push("/home");
+        validate(geteMail, getPasswrd);
     };
   
     //gets the user's name from the text field
-    function getuserName(user) {
-        userName = user;
-        console.log(userName);
+    function geteMail(em) {
+        eMail = em;
+        console.log(eMail);
     }
     //gets the password from the text field
     function getPasswrd(passwrd) {
@@ -38,13 +63,13 @@ const LoginCard = () => {
                     <SignInTextField
                     labelname="Email"
                     placeholderText="example@gmail.com"
-                    getData={getuserName}
+                    getData={geteMail}
                     />
                 </div>
                 <div id="Password">
                     <SignInTextField
                     labelname="Password"
-                    placeholderText="password"
+                    placeholderText="password"                    
                     getData={getPasswrd}
                     />
                 </div>

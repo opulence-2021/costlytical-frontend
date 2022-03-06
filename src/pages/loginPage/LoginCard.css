@@ -44,4 +44,10 @@
   #signUp {
     margin-top: 40px;
   }
+
+  #validator {
+    color: #cc0000;
+    margin-top: 5px;
+    font-size: var(--fontSmall);
+  }
   
