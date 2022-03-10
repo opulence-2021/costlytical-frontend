@@ -3,7 +3,7 @@ import React from "react";
 import "./SignInTextField.css";
 
 const TextFieldSignIn = (props) => {
-  const { labelname, placeholderText, getData } = props;
+  const { labelname, placeholderText, getData, textFieldID } = props;
   return (
     <div id="SignintextFiled">
       <label for="name" id="textBoxLabelSignin">
@@ -13,8 +13,9 @@ const TextFieldSignIn = (props) => {
       <input
         type="text"
         name="name"
-        id="nameFieldSignin"
-        onChange={() => getData(document.getElementById("nameFieldSignin").value)}
+        id={textFieldID}
+        className="CustomtextField"
+        onChange={() => getData(document.getElementById(textFieldID).value)}
         placeholder={placeholderText}
       ></input>
     </div>

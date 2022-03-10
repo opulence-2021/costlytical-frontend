@@ -18,7 +18,7 @@ const LoginCard = () => {
     //email regex
     const emailReg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-  
+
     //validator function
     const validate = (valueE,valueP) => {
         let passCheck = true;
@@ -28,9 +28,9 @@ const LoginCard = () => {
         let Mail = valueE;
         //grabs the value of the password
         let Passs = valueP;
-
+        
         //email checker
-        if (Mail == "") {
+        if (Mail === "") {
             alert.show('Incorrect Email Format!');
             emaCheck = false;
         } else if (Mail.length < 10) {
@@ -42,11 +42,10 @@ const LoginCard = () => {
         } else {
             emaCheck = true;
         }
-        console.log(Mail);
-        console.log(emaCheck);
+
         //password checker
         if (emaCheck) {
-            if (Passs == ""){
+            if (Passs === ""){
                 alert.show('Password must be entered!');
                 passCheck = false;
             } else if (Passs.length < 10 ){
@@ -62,9 +61,25 @@ const LoginCard = () => {
         }
     }
 
+    //sets the email and pass with session storage
+    function setData() {
+        let comps = {eMail, passWord}
+        sessionStorage.setItem("session text whatever temp", JSON.stringify(comps));
+    }
+    
+    //gets the email and pass with session storage
+    function getData() {
+        let data = sessionStorage.getItem("session text whatever temp");
+        data = JSON.parse(data);
+        console.log(data.passWord);
+        console.log(data.eMail);
+    }
+
     //handling the signIn button press
     const handleSigninClick = () => {
         validate(eMail, passWord);
+        setData();
+        getData();
     };
   
     //gets the user's name from the text field
@@ -86,13 +101,15 @@ const LoginCard = () => {
                     <SignInTextField
                     labelname="Email"
                     placeholderText="example@gmail.com"
+                    textFieldID="email" 
                     getData={geteMail}
                     />
                 </div>
                 <div id="Password">
                     <SignInTextField
                     labelname="Password"
-                    placeholderText="password"                    
+                    placeholderText="password" 
+                    textFieldID="pass"                   
                     getData={getPasswrd}
                     />
                 </div>
