@@ -7,7 +7,7 @@ import Home from "./pages/homePage/Home";
 import Login from "./pages/loginPage/LoginPage";
 import CreateNewProject from "./pages/newPage/CreateNewProject";
 import CreateNewProject_1 from "./pages/newPage/newPage_1/CreateNewProject_1";
-import PendingConfirmation from "./pages/PendingConfirmation";
+import PendingConfirmation from "./pages/pending/PendingConfirmation";
 import AwaitingProjects from "./pages/AwaitingProjects";
 import PreviousProjects from "./pages/PreviousProjects";
 
