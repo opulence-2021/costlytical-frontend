@@ -12,8 +12,8 @@ const PendingConfirmation = () => {
       <div className="nav">
         <NewSideBar />
       </div>
-      <div className="container__body">
-        <h1 className="container__body__title">Project Pending Confirmation</h1>
+      <div className="container__pending">
+        <h1 className="container__pending__title">Project Pending Confirmation</h1>
         <div className="container__table">
           <Table list={list} />
         </div>
