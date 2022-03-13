@@ -21,7 +21,7 @@ const Table = ({ list }) => {
                         <td>{x.projectName}</td>
                         <td>{x.noOfModel}</td>
                         <td>Rs. {x.totalCost}</td>
-                        <td><button>Details</button></td>
+                        <td><button className='detail__button '>Details</button></td>
                     </tr>
                 ))}
             </table>

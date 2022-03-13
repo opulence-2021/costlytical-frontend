@@ -13,7 +13,7 @@ tr {
 th {
   padding: 1rem 3rem;
 }
-button {
+.detail__button {
   background-color: var(--blue);
   padding: 0.5rem 1rem;
   color: var(--white);
@@ -23,7 +23,7 @@ button {
   width: 100%;
   transition: all 0.2s;
 }
-button:hover {
+.detail__button:hover {
   padding: 1rem;
 }
 td {
