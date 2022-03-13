@@ -1,0 +1,19 @@
+table {
+  border-collapse: separate;
+  border-spacing: 0 1em;
+}
+tr:not(:first-child) {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-radius: 20px;
+}
+tr {
+  white-space: nowrap;
+  width: 100%;
+}
+th {
+  padding: 1rem 1rem;
+}
+
+td {
+  padding: 1rem 3rem;
+}
