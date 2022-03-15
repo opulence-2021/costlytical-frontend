@@ -1,0 +1,103 @@
+/* side bar styles */
+#newSideBar {
+  width: 18vw;
+  height: 100vh;
+  background-color: var(--darkBlue);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* logo styles */
+#logo {
+  display: block;
+  width: 50%;
+  height: auto;
+  border-radius: 50%;
+  margin-top: 30px;
+  margin-left: 20%;
+}
+
+/* nav bar styles */
+#navBar {
+  display: flex;
+  flex-direction: column;
+  margin-top: 70px;
+  width: 100%;
+}
+
+/* nav item styles */
+.navItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--darkBlue);
+  width: 100%;
+  height: 55px;
+  border-bottom: 1px solid var(--white);
+  border-top: 1px solid var(--white);
+}
+
+.navHeading {
+  font-size: var(--fontRegular);
+  font-weight: 350;
+}
+
+.navImage {
+  height: 30px;
+  width: auto;
+  margin-left: 35px;
+  margin-right: 30px;
+}
+
+.navItem:hover {
+  color: var(--orange);
+}
+
+.svg {
+  filter: grayscale(1);
+}
+.choosen {
+  filter: invert(53%) sepia(86%) saturate(3249%) hue-rotate(347deg)
+    brightness(99%) contrast(89%);
+}
+.navItem:hover .navImage {
+  filter: invert(53%) sepia(86%) saturate(3249%) hue-rotate(347deg)
+    brightness(99%) contrast(89%);
+}
+
+/* nav item heighlights */
+#navHome_1 {
+  /* border-top: 2px solid var(--white);
+  border-bottom: 1px solid var(--orange); */
+}
+
+#navNew_1 {
+}
+
+#selectBlock_1 {
+  display: block;
+  height: 55px;
+  width: 2%;
+  background-color: var(--orange);
+}
+
+#navPending_1 {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+#navPrevious_1 {
+  border-bottom: 2px solid var(--white);
+}
+
+/* user details bar styles */
+#userDetails {
+  display: block;
+  width: 90%;
+  height: 70px;
+  background-color: var(--lightGray);
+  border-radius: 5px;
+  margin-top: 100px;
+}

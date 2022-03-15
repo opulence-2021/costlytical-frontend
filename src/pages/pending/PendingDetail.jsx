@@ -51,9 +51,6 @@ const PendingDetail = () => {
                         <div>
                             <h1 className="title__value">Total Value: Rs.1,500</h1>
                         </div>
-                        <div className="title__progress">
-                            <ProgressCircular progress={75} />
-                        </div>
                     </div>
                     <div className="table__body">
                         <TableDetail list={list} />
