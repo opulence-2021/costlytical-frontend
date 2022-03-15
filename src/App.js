@@ -1,5 +1,6 @@
 // Routing
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Axios from '../src/api/api'
 // Styles
 import "./App.css";
 // Components
