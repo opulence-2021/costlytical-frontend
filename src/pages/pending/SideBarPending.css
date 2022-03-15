@@ -39,9 +39,14 @@
   border-top: 1px solid var(--white);
 }
 
-.navHeading {
+.navHeading_3 {
   font-size: var(--fontRegular);
   font-weight: 350;
+  color: var(--white);
+}
+
+.selected {
+  color: var(--orange);
 }
 
 .navImage {
@@ -85,7 +90,7 @@
 
 #navPending_1 {
   border-color: var(--orange);
-  color: var(--orange);
+  /* color: var(--orange); */
 }
 
 #navPrevious_1 {
