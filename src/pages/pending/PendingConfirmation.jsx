@@ -2,7 +2,7 @@ import React from "react";
 // Styles
 import './PendingConfirmation.css'
 // Components
-import NewSideBar from "../newPage/NewSideBar";
+import SideBarPending from "./SideBarPending";
 import Table from '../../components/Table'
 const PendingConfirmation = () => {
   const list = [{ estimateNo: "CE-003", date: "01/02/2022", projectName: "Stationary Set", noOfModel: "05", totalCost: "2,500" },
@@ -10,7 +10,7 @@ const PendingConfirmation = () => {
   return (
     <div className="container">
       <div className="nav">
-        <NewSideBar />
+        <SideBarPending />
       </div>
       <div className="container__pending">
         <h1 className="container__pending__title">Project Pending Confirmation</h1>

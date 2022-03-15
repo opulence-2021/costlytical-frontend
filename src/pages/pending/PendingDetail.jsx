@@ -4,7 +4,7 @@ import './PendingDetail.css';
 //Components
 import ProgressCircular from '../../components/ProgressCircular';
 import TableDetail from '../../components/TableDetail';
-import NewSideBar from "../newPage/NewSideBar";
+import SideBarPending from "./SideBarPending";
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import TextField from '@mui/material/TextField';
@@ -37,7 +37,7 @@ const PendingDetail = () => {
         <div className="container">
             <div className='container__one'>
                 <div className="nav">
-                    <NewSideBar />
+                    <SideBarPending />
                 </div>
                 <div className="container__body">
                     <div className="container__body__title">
