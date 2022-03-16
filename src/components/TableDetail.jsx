@@ -5,6 +5,7 @@ import ProgressCircular from './ProgressCircular';
 const TableDetail = ({ list }) => {
 
 
+
     return (
         <>
             <table>
@@ -29,6 +30,7 @@ const TableDetail = ({ list }) => {
                             <td>{x.quantity}</td>
                             <td>Rs. {x.lineTotal}</td>
                             <td><ProgressCircular progress={x.score} /></td>
+
                         </tr>
                     </Fragment>
                 ))}
