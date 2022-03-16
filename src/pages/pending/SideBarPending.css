@@ -28,7 +28,7 @@
 }
 
 /* nav item styles */
-.navItem {
+.nav__link {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -39,35 +39,34 @@
   border-top: 1px solid var(--white);
 }
 
-.navHeading_3 {
+.nav__heading {
   font-size: var(--fontRegular);
   font-weight: 350;
   color: var(--white);
 }
-
+.nav__link:hover .nav__heading {
+  color: var(--orange);
+}
 .selected {
   color: var(--orange);
 }
 
-.navImage {
+.nav__image {
   height: 30px;
   width: auto;
   margin-left: 35px;
   margin-right: 30px;
 }
 
-.navItem:hover {
+.nav__link:hover {
   color: var(--orange);
 }
 
-.svg {
-  filter: grayscale(1);
-}
 .choosen {
   filter: invert(53%) sepia(86%) saturate(3249%) hue-rotate(347deg)
     brightness(99%) contrast(89%);
 }
-.navItem:hover .navImage {
+.nav__link:hover .nav__image {
   filter: invert(53%) sepia(86%) saturate(3249%) hue-rotate(347deg)
     brightness(99%) contrast(89%);
 }
