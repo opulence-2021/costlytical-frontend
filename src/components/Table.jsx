@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom'
+import CustomButton from '../components/CustomButton';
 //style
 import "./Table.css"
 
@@ -17,11 +18,11 @@ const Table = ({ list }) => {
                 {list.map((x, i) => (
                     <Fragment key={i}>
                         <tr>
-                            <td>{x.estimateNo}</td>
-                            <td>{x.date}</td>
-                            <td>{x.projectName}</td>
-                            <td>Rs. {x.totalCost}</td>
-                            <td><Link to='/detail'><button className='detail__button '>Details</button></Link></td>
+                            <td className='td'>{x.estimateNo}</td>
+                            <td className='td'>{x.date}</td>
+                            <td className='td'>{x.projectName}</td>
+                            <td className='td'>Rs. {x.totalCost}</td>
+                            <td className='td'><Link to='/detail'><CustomButton buttonName='Details'></CustomButton></Link></td>
                         </tr>
                     </Fragment>
                 ))}

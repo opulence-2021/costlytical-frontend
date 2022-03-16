@@ -1,8 +1,9 @@
 import React, { Fragment } from 'react';
-import "./TableDetail.css"
+import "./TableDetail.css";
 import ProgressCircular from './ProgressCircular';
 
 const TableDetail = ({ list }) => {
+
 
     return (
         <>
