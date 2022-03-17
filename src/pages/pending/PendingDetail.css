@@ -1,0 +1,79 @@
+.container__one {
+  display: flex;
+  background-color: var(--white);
+  margin: 1rem 0rem;
+  border-radius: 10px;
+}
+.nav {
+  background-color: #13293d;
+}
+.container__body {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+.container__body__title {
+  background-color: var(--white);
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-radius: 10px;
+  width: 75vw;
+}
+h1 {
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+h2 {
+  font-weight: 400;
+}
+.title__created {
+  margin-left: 1rem;
+}
+.container__decline {
+  padding: 2rem 3rem;
+}
+.button__decline {
+  background-color: var(--red);
+  padding: 0.5rem 1rem;
+  color: var(--white);
+  border-radius: 10px;
+  cursor: pointer;
+  border: var(--white);
+}
+.container__delivery {
+  background-color: var(--darkGray);
+  border-radius: 10px;
+}
+.box__store {
+  background-color: var(--white);
+  padding: 0.5rem 2rem;
+  margin: 1rem 2rem;
+  border-radius: 10px;
+}
+.box__input {
+  background-color: var(--white);
+  padding: 0.5rem 2rem;
+  margin: 1rem 2rem;
+  border-radius: 10px;
+}
+.box__option {
+  display: flex;
+  justify-content: space-between;
+}
+.title__location {
+  margin-top: 1rem;
+}
+.container__confirm {
+  margin: 2rem 2rem;
+  text-align: right;
+}
+.btn__confirm {
+  background-color: var(--blue);
+  padding: 0.5rem 1rem;
+  color: var(--white);
+  border-radius: 10px;
+  cursor: pointer;
+  border: var(--white);
+}
