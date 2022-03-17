@@ -9,7 +9,7 @@
   border-radius: 10px;
 }
 .container__pending__title {
-  background-color: var(--lightBlue);
+  background-color: var(--medGray);
   padding: 2rem;
   border-radius: 10px;
   width: 75vw;

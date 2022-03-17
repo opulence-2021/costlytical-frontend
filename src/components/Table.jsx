@@ -18,7 +18,7 @@ const Table = ({ list }) => {
                 {list.map((x, i) => (
                     <Fragment key={i}>
                         <tr>
-                            <td className='td'>{x.estimateNo}</td>
+                            <td className='td'>{x.projectId}</td>
                             <td className='td'>{x.date}</td>
                             <td className='td'>{x.projectName}</td>
                             <td className='td'>Rs. {x.totalCost}</td>
