@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  background-color: var(--darkBlue);
+}
+.container__pending {
+  background-color: var(--white);
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.container__pending__title {
+  background-color: var(--medGray);
+  padding: 2rem;
+  border-radius: 10px;
+  width: 75vw;
+}
+.container__table {
+  margin-top: 3rem;
+}
