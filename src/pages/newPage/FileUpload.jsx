@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { URL } from "../../api";
+import { API_URL } from "../../api";
 // Styles
 import "./FileUpload.css";
 
@@ -28,7 +28,7 @@ const FileUpload = () => {
 
     try {
       const res = await axios.post(
-        `${URL}/projects/uploadModel?customerId=${customerId}&ProjectId=${ProjectId}`,
+        `${API_URL}/projects/uploadModel?customerId=${customerId}&ProjectId=${ProjectId}`,
         formData,
         {
           headers: {

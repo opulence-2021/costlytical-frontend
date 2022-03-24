@@ -1,2 +1,2 @@
-//exporting the dfault URL
-export const URL = "http://localhost:5000";
+//exporting the dfault URL of the backend
+export const API_URL = "http://188.166.167.158:5000";
