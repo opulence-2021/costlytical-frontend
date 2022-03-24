@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { URL } from "../../api";
 // Styles
 import "./HomeCard.css";
+//Routing
+import { useHistory } from "react-router-dom";
 //components
 import PageHeading from "../../components/PageHeading";
 import BlueCard from "../../components/BlueCard";
@@ -11,17 +11,18 @@ import RedCard from "../../components/RedCard";
 import PurpleCard from "../../components/PurpleCard";
 
 const HomeCardBackground = () => {
-  //API URL
-  const url = `${URL}/userName`;
-
-  //method to get user name : update!
+  const history = useHistory();
+  //method to get user name from session storage
   const [userName, setUserName] = useState("User");
   useEffect(() => {
-    axios.get(`${url}`).then((res) => {
-      const responseName = res.data.name;
-      setUserName(responseName);
-      console.log(responseName);
-    });
+    if (sessionStorage.length == 0) {
+      history.push("/login");
+    } else {
+      const user = JSON.parse(sessionStorage.user);
+      let { firstName } = user;
+      setUserName(firstName);
+      console.table(user);
+    }
   }, []);
   let userNameTxt = `Welcome ${userName}`;
   return (
