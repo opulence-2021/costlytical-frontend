@@ -60,7 +60,7 @@ const LoginCard = () => {
     }
 
     //function to send the api request to validate credentials and get user data
-    if (emaCheck == true && passCheck == true) {
+    if (emaCheck === true && passCheck === true) {
       try {
         axios
           .post(
@@ -71,7 +71,7 @@ const LoginCard = () => {
             setUserData(responseLogin);
           })
           .catch(function (error) {
-            if (error.response.status == 401) {
+            if (error.response.status === 401) {
               Swal.fire(
                 "There was a problem",
                 "Enter the correct email address and pasword to sign in",

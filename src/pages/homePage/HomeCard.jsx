@@ -15,13 +15,12 @@ const HomeCardBackground = () => {
   //method to get user name from session storage
   const [userName, setUserName] = useState("User");
   useEffect(() => {
-    if (sessionStorage.length == 0) {
+    if (sessionStorage.length === 0) {
       history.push("/login");
     } else {
       const user = JSON.parse(sessionStorage.user);
       let { firstName } = user;
       setUserName(firstName);
-      console.table(user);
     }
   }, []);
   let userNameTxt = `Welcome ${userName}`;
