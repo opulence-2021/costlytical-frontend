@@ -81,6 +81,12 @@ input[type="file"]::file-selector-button:hover {
   margin-top: 20px;
 }
 
+#nextBtn {
+  display: none;
+  margin-top: 70px;
+  margin-left: 100%;
+}
+
 #submitBtn:hover {
   background-color: var(--lightBlue);
 }
