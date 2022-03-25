@@ -87,12 +87,6 @@ const NewCard = () => {
     document.getElementById("secodaryContent").style.display = "initial";
   }
 
-  //handling next button press
-  const handdleNextClick = () => {
-    //validate file upload
-    history.push("/new/request");
-  };
-
   //sets the project name to the session
   function setProjectData(projectID) {
     sessionStorage.setItem("projectId", projectID);
@@ -135,10 +129,7 @@ const NewCard = () => {
       {/* components for File upload */}
       <div id="secodaryContent">
         <div id="fileUploadSpace">
-          <FileUpload />
-        </div>
-        <div id="nextBtn" onClick={() => handdleNextClick()}>
-          <CustomButton buttonName="Next" />
+          <FileUpload customerId={userId} ProjectId={projectId} />
         </div>
       </div>
     </div>
