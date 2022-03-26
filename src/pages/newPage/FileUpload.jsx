@@ -11,6 +11,7 @@ import CustomButton from "../../components/CustomButton";
 
 const FileUpload = (props) => {
   const history = useHistory();
+  let modelName = "STL";
   //userId and projectId
   const { customerId, ProjectId } = props;
 
@@ -66,6 +67,7 @@ const FileUpload = (props) => {
   const onfileChange = (e) => {
     setFile(e.target.files[0]);
     setFileName(e.target.files[0].name);
+    modelName = e.target.files[0].name;
   };
 
   //method to get uploaded file
@@ -104,14 +106,14 @@ const FileUpload = (props) => {
       let timerInterval;
       Swal.fire({
         title: "Processing....",
-        html: `File: ${filename}`,
+        html: `File: <b></b>`,
         timer: 4000,
         timerProgressBar: true,
         didOpen: () => {
           Swal.showLoading();
           const b = Swal.getHtmlContainer().querySelector("b");
           timerInterval = setInterval(() => {
-            b.textContent = Swal.getTimerLeft();
+            b.textContent = modelName;
           }, 100);
         },
         willClose: () => {
