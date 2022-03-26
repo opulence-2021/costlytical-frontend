@@ -42,6 +42,9 @@ const NewCard = () => {
         "warning"
       );
     } else {
+      // Save project name to sessionStorage
+      sessionStorage.setItem("projectName", projectName);
+
       // method to create the project using axios to call the backend
       try {
         axios
