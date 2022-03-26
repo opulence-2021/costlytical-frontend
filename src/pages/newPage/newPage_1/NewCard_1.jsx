@@ -14,7 +14,6 @@ import TableHeader from "./TableHeader";
 import ModelDetails from "./ModelDetails";
 import TextArea from "../../../components/TextArea";
 import CustomButton from "../../../components/CustomButton";
-import succsess from "../../../images/succsess.gif";
 
 const NewCard_1 = () => {
   //constants
@@ -77,7 +76,6 @@ const NewCard_1 = () => {
 
   //handling back button press
   const handdlBackClick = () => {
-    //validate if needed
     Swal.fire({
       title: "Are you sure?",
       text: "All entered details will be lost!",
@@ -94,11 +92,7 @@ const NewCard_1 = () => {
   };
 
   //handling Resquest button press
-  const handdlRequestClick = () => {
-    //validate inputs and API request to upload settings, confirmation?
-    // document.querySelector("#overlay").style.display = "initial";
-    // document.querySelector("#confirmBox").style.display = "initial";
-
+  const handdlRequestClick = async () => {
     // method to update model print details using axios to call the backend
     try {
       let modelContent = JSON.parse(sessionStorage.NewModels);
@@ -109,10 +103,20 @@ const NewCard_1 = () => {
           modelContent,
           config
         )
-        .then((res) => {
-          Swal.fire("", "Order request submitted successfully", "success");
+        .then(async (res) => {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Order request submitted successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+
+          //method call to generate cost
+          generateProjectCost();
+
           // method to move user to home page
-          //   history.push("/home");
+          setTimeout(() => history.push("/home"), 2000);
         })
         .catch(function (error) {
           if (error.response.status === 400) {
@@ -139,13 +143,38 @@ const NewCard_1 = () => {
     }
   };
 
-  // //handling okay button press in pop-up
-  // const handdlOkayClick = () => {
-  //   //validate inputs and API request to upload settings, confirmation?
-  //   document.querySelector("#overlay").style.display = "none";
-  //   document.querySelector("#confirmBox").style.display = "none";
-  //   history.push("/home");
-  // };
+  //function to initiate generate cost method
+  function generateProjectCost() {
+    try {
+      axios
+        .post(`${API_URL}/generateCost?projectID=${projectId}`)
+
+        .then((res) => {})
+
+        .catch(function (error) {
+          if (error.response.status === 400) {
+            Swal.fire(
+              "Oops..., there was a problem",
+              "An error occured while slicing",
+              "error"
+            );
+          } else if (error.response.status === 404) {
+            Swal.fire(
+              "Oops..., there was a problem",
+              "Server cannot find the requested resource",
+              "error"
+            );
+          }
+        });
+    } catch (error) {
+      console.log(error);
+      Swal.fire(
+        "Oops..., there was a problem",
+        "There was problem with the server",
+        "error"
+      );
+    }
+  }
 
   return (
     <div id="cardBackground_1">
@@ -191,22 +220,6 @@ const NewCard_1 = () => {
           <CustomButton buttonName="Place Request" />
         </div>
       </div>
-      {/* Confirmation popup
-      <div id="confirmBox">
-        <div id="confirmBoxContent">
-          <div id="tickImage_1">
-            <img src={succsess} alt="succsess" id="tickImage" />
-          </div>
-          <div id="textbar">
-            <h3>Estimate request submitted successfully</h3>
-          </div>
-          <div id="okayBtn" div onClick={() => handdlOkayClick()}>
-            <CustomButton buttonName="Okay" />
-          </div>
-        </div>
-      </div>
-      {/* opacity overlay */}
-      {/* <div id="overlay"></div> */}
     </div>
   );
 };
