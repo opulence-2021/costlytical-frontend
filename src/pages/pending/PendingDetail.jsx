@@ -1,4 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { API_URL } from "../../api";
+//Routing
+import { useHistory } from "react-router-dom";
 //styles
 import "./PendingDetail.css";
 //Components
@@ -6,37 +11,87 @@ import TableDetail from "../../components/TableDetail";
 import SideBarPending from "./SideBarPending";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import CustomButton from "../../components/CustomButton";
 import TextField from "@mui/material/TextField";
-import Swal from "sweetalert2";
 
 const PendingDetail = () => {
-  const list = [
-    {
-      modelName: "Base v2",
-      material: "PLA+",
-      layerHeight: "0.28cm",
-      infill: "20",
-      subTotal: "1000",
-      quantity: "01",
-      lineTotal: "1000",
-      score: 75,
-    },
-    {
-      modelName: "Base v2",
-      material: "PLA+",
-      layerHeight: "0.28cm",
-      infill: "20",
-      subTotal: "250",
-      quantity: "02",
-      lineTotal: "500",
-      score: 75,
-    },
-  ];
+  const history = useHistory();
+  const [thisProject, setThisProject] = useState({
+    _id: "Sample ID 1233343454587349585",
+    projectCreatedAt: "12/12/2012",
+    projectName: "Sample project name",
+    projectTotalCost: "0",
+    userId: "621d0b4662676d59d5148f91",
+  });
+  const path = window.location.pathname.slice(
+    window.location.pathname.length - 24,
+    window.location.pathname.length
+  );
 
+  const [models, setModels] = useState([
+    {
+      modelName: "Sample project name",
+      materialName: "PLA+",
+      layerHeight: 0.28,
+      subTotal: 0,
+      modelQuantity: 1,
+      lineTotal: 0,
+      printabilityScore: 100,
+    },
+  ]);
+
+  //method to get model data from the backend
+  useEffect(() => {
+    if (sessionStorage.length === 0) {
+      history.push("/login");
+    } else {
+      //calling the backend to get model details
+      try {
+        axios
+          .get(`${API_URL}/models/getModels?projectID=${path}`)
+          .then((res) => {
+            const responseModels = res.data;
+            setModels(responseModels);
+            setProjectDetails();
+          })
+          .catch(function (error) {
+            if (error.response.status === 400) {
+              Swal.fire(
+                "Oops..., there was a problem",
+                "Enter a valid user ID",
+                "error"
+              );
+            } else if (error.response.status === 404) {
+              Swal.fire(
+                "Oops..., there was a problem",
+                "Cannot find the requested resource",
+                "error"
+              );
+            }
+          });
+      } catch (error) {
+        console.log(error);
+        Swal.fire(
+          "Oops..., there was a problem",
+          "There was problem with the server",
+          "error"
+        );
+      }
+    }
+  }, []);
+
+  //method to set project details
+  function setProjectDetails() {
+    const projects = JSON.parse(sessionStorage.PendingProjects);
+    let Project = projects.find(({ _id }) => _id === path);
+    setThisProject(Project);
+  }
+
+  //method to handle confirm button click
   const handleConfirm = () => {
     Swal.fire("Success!", "Order Request Submitted!", "success");
   };
+
+  //method to handle decline button click
   const handleDecline = () => {
     Swal.fire({
       icon: "error",
@@ -54,18 +109,26 @@ const PendingDetail = () => {
         <div className="container__body">
           <div className="container__body__title">
             <div>
-              <h1>Water Pump</h1>
-              <p className="title__created">Created By: Jhon Harry</p>
+              <h1>
+                <b>{thisProject.projectName}</b>
+              </h1>
+              <p className="title__created">
+                <b>Created By:</b> {thisProject.userId.slice(16, 24)}
+              </p>
             </div>
             <div className="title__estimated">
-              <h1>Project Id: 001</h1>
+              <h1>
+                <b>Project Id:</b> {thisProject._id.slice(8, 24)}
+              </h1>
             </div>
             <div>
-              <h1 className="title__value">Total Value: Rs.1,500</h1>
+              <h1 className="title__value">
+                <b>Total Value: </b>Rs. {thisProject.projectTotalCost}
+              </h1>
             </div>
           </div>
           <div className="table__body">
-            <TableDetail list={list} />
+            <TableDetail list={models} />
           </div>
           <div className="container__decline">
             <button onClick={handleDecline} className="button__decline">

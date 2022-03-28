@@ -17,12 +17,12 @@ const Table = ({ list }) => {
         {list.map((x, i) => (
           <Fragment key={i}>
             <tr>
-              <td className="td">{x.projectId}</td>
-              <td className="td">{x.date}</td>
+              <td className="td">{x._id.slice(8, 24)}</td>
+              <td className="td">{x.projectCreatedAt.slice(0, 10)}</td>
               <td className="td">{x.projectName}</td>
-              <td className="td">Rs. {x.totalCost}</td>
+              <td className="td">Rs. {x.projectTotalCost}</td>
               <td className="td">
-                <Link to="/detail">
+                <Link to={`/detail/${x._id}`}>
                   <CustomButton buttonName="Details"></CustomButton>
                 </Link>
               </td>
