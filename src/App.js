@@ -23,7 +23,7 @@ function App() {
           <Route path="/new" exact component={CreateNewProject} />
           <Route path="/new/request" exact component={CreateNewProject_1} />
           <Route path="/pending" exact component={PendingConfirmation} />
-          <Route path="/detail" exact component={PendingDetail} />
+          <Route path="/detail/:_id" exact component={PendingDetail} />
           <Route path="/awaiting" exact component={AwaitingProjects} />
           <Route path="/previous" exact component={PreviousProjects} />
         </Switch>
