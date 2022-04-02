@@ -96,6 +96,11 @@ const LoginCard = () => {
     validate(eMail, passWord);
   };
 
+  //handling the signUp button press
+  const handleSignUpClick = () => {
+    history.push("/signUp");
+  };
+
   //gets the user's name from the text field
   function geteMail(em) {
     eMail = em;
@@ -128,10 +133,10 @@ const LoginCard = () => {
           />
         </div>
         <div id="ButtonsAlignment">
-          <div id="signInButton" div onClick={() => handleSigninClick()}>
+          <div id="signInButton" onClick={() => handleSigninClick()}>
             <CustomButton buttonName="Sign In" />
           </div>
-          <div id="signUp">
+          <div id="signUp" onClick={() => handleSignUpClick()}>
             <CustomButton buttonName="Sign Up" />
           </div>
         </div>
