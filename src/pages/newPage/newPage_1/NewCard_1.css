@@ -59,7 +59,7 @@
 }
 
 /* confirm pop-up box styles */
-#confirmBox {
+/* #confirmBox {
   height: 300px;
   width: 500px;
   z-index: 3;
@@ -91,9 +91,9 @@
   margin-bottom: 30px;
 
   font-size: 14px;
-}
+} */
 
-/* page opacity control overlay styles */
+/* page opacity control overlay styles
 #overlay {
   min-height: 100vmax;
   min-width: 100%;
@@ -104,4 +104,4 @@
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.5);
   display: none;
-}
+} */

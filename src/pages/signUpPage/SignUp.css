@@ -1,0 +1,18 @@
+.signUpPage_background {
+  background-color: var(--darkBlue);
+  color: var(--white);
+  min-width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+}
+
+#cardBackground_Signup {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 30px;
+}
+
+#signUp_sideContent {
+  width: 60vw;
+}
