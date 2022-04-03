@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { API_URL } from "../../../api";
 //Routing
 import { useHistory } from "react-router-dom";
 // Styles
@@ -11,65 +14,167 @@ import TableHeader from "./TableHeader";
 import ModelDetails from "./ModelDetails";
 import TextArea from "../../../components/TextArea";
 import CustomButton from "../../../components/CustomButton";
-import succsess from "../../../images/succsess.gif";
 
 const NewCard_1 = () => {
-  //Project name
-  const projectName = "Infusion Pump v1";
-
-  //Model details this is an example. data should be fetched using API request, useEffect, useState, Axios.
-  const models = [
-    {
-      modelNumber: 1,
-      modelName: "Base v2",
-      material: "PLA+",
-      layerHeight: "0.28mm",
-      quantity: "1",
-    },
-    {
-      modelNumber: 2,
-      modelName: "Stepper motor holder",
-      material: "PETG",
-      layerHeight: "0.28mm",
-      quantity: "1",
-    },
-    {
-      modelNumber: 3,
-      modelName: "Arduino cover v3",
-      material: "PLA+",
-      layerHeight: "0.28mm",
-      quantity: "1",
-    },
-  ];
-
-  //Number of models
-  const noOfModels = models.length;
-  const subHeading = `Number of models: ${noOfModels}`;
-
+  //constants
   const history = useHistory();
+  const [projectId, setProjectId] = useState();
+  const [projectName, setProjectName] = useState("Project Name");
+  const [models, setModels] = useState();
+  const [subHeading, setSubHeading] = useState("Number of models");
+
+  //method to get model details from the database
+  useEffect(() => {
+    if (sessionStorage.length < 2) {
+      history.push("/login");
+    } else {
+      const projectID = sessionStorage.getItem("projectId");
+      setProjectId((currentProjectId) => projectID);
+      const ProjectNAme = sessionStorage.getItem("projectName");
+      setProjectName(ProjectNAme);
+
+      try {
+        axios
+          .get(`${API_URL}/models/getModels?projectID=${projectID}`)
+          .then((res) => {
+            const responseModels = res.data;
+            setModels(responseModels);
+            setModelDetails(responseModels);
+            let numberOfModels = models.length;
+            setSubHeading(`Number of models: ${numberOfModels}`);
+          })
+          .catch(function (error) {
+            if (error.response.status === 404) {
+              Swal.fire(
+                "Oops..., there was a problem",
+                "Server cannot find the requested resource",
+                "error"
+              );
+            } else if (error.response.status === 400) {
+              Swal.fire(
+                "Oops..., there was a problem",
+                "Invalid project ID",
+                "error"
+              );
+            }
+          });
+      } catch (error) {
+        console.log(error);
+        Swal.fire(
+          "Oops..., there was a problem",
+          "There was problem with the server",
+          "error"
+        );
+      }
+    }
+  }, []);
+
+  //sets the model details to the session storage
+  function setModelDetails(modelData) {
+    sessionStorage.setItem("NewModels", JSON.stringify(modelData));
+  }
 
   //handling back button press
   const handdlBackClick = () => {
-    //validate if needed
-    if (window.confirm("All entered details will be lost!")) {
-      history.push("/new");
-    }
+    Swal.fire({
+      title: "Are you sure?",
+      text: "All entered details will be lost!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        history.push("/new");
+      }
+    });
   };
 
   //handling Resquest button press
-  const handdlRequestClick = () => {
-    //validate inputs and API request to upload settings, confirmation?
-    document.querySelector("#overlay").style.display = "initial";
-    document.querySelector("#confirmBox").style.display = "initial";
+  const handdlRequestClick = async () => {
+    // method to update model print details using axios to call the backend
+    try {
+      let modelContent = JSON.parse(sessionStorage.NewModels);
+      const config = { headers: { "Content-Type": "application/json" } };
+      axios
+        .put(
+          `${API_URL}/models/updateModels?projectID=${projectId}`,
+          modelContent,
+          config
+        )
+        .then(async (res) => {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Order request submitted successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+
+          //method call to generate cost
+          generateProjectCost();
+
+          // method to move user to home page
+          setTimeout(() => history.push("/home"), 2000);
+        })
+        .catch(function (error) {
+          if (error.response.status === 400) {
+            Swal.fire(
+              "Oops..., there was a problem",
+              "Enter a valid project name",
+              "error"
+            );
+          } else if (error.response.status === 404) {
+            Swal.fire(
+              "Oops..., there was a problem",
+              "Server cannot find the requested resource",
+              "error"
+            );
+          }
+        });
+    } catch (error) {
+      console.log(error);
+      Swal.fire(
+        "Oops..., there was a problem",
+        "There was problem with the server",
+        "error"
+      );
+    }
   };
 
-  //handling okay button press in pop-up
-  const handdlOkayClick = () => {
-    //validate inputs and API request to upload settings, confirmation?
-    document.querySelector("#overlay").style.display = "none";
-    document.querySelector("#confirmBox").style.display = "none";
-    history.push("/home");
-  };
+  //function to initiate generate cost method
+  function generateProjectCost() {
+    try {
+      axios
+        .post(`${API_URL}/generateCost?projectID=${projectId}`)
+
+        .then((res) => {})
+
+        .catch(function (error) {
+          if (error.response.status === 400) {
+            Swal.fire(
+              "Oops..., there was a problem",
+              "An error occured while slicing",
+              "error"
+            );
+          } else if (error.response.status === 404) {
+            Swal.fire(
+              "Oops..., there was a problem",
+              "Server cannot find the requested resource",
+              "error"
+            );
+          }
+        });
+    } catch (error) {
+      console.log(error);
+      Swal.fire(
+        "Oops..., there was a problem",
+        "There was problem with the server",
+        "error"
+      );
+    }
+  }
 
   return (
     <div id="cardBackground_1">
@@ -89,11 +194,10 @@ const NewCard_1 = () => {
       <div id="models">
         {models &&
           models.map((model) => {
-            const { modelNumber, modelName, material, layerHeight, quantity } =
-              model;
+            const { _id, modelName, material, layerHeight, quantity } = model;
             return (
               <ModelDetails
-                model_Number={modelNumber}
+                model_Number={_id}
                 model_Name={modelName}
                 model_material={material}
                 model_layerHeight={layerHeight}
@@ -116,22 +220,6 @@ const NewCard_1 = () => {
           <CustomButton buttonName="Place Request" />
         </div>
       </div>
-      {/* Confirmation popup */}
-      <div id="confirmBox">
-        <div id="confirmBoxContent">
-          <div id="tickImage_1">
-            <img src={succsess} alt="succsess" id="tickImage" />
-          </div>
-          <div id="textbar">
-            <h3>Estimate request submitted successfully</h3>
-          </div>
-          <div id="okayBtn" div onClick={() => handdlOkayClick()}>
-            <CustomButton buttonName="Okay" />
-          </div>
-        </div>
-      </div>
-      {/* opacity overlay */}
-      <div id="overlay"></div>
     </div>
   );
 };

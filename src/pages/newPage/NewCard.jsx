@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { API_URL } from "../../api";
 //Routing
 import { useHistory } from "react-router-dom";
 // Styles
@@ -14,22 +17,84 @@ import projectImage from "../../storyImages/project.svg";
 
 const NewCard = () => {
   const history = useHistory();
-  let projectName = "project";
+  let projectName = "";
+  const [userId, setUserId] = useState();
+  const [projectId, setProjectId] = useState();
 
-  //handling create project click
+  //method to get user ID from session storage
+  useEffect(() => {
+    if (sessionStorage.length === 0) {
+      history.push("/login");
+    } else {
+      const user = JSON.parse(sessionStorage.user);
+      let { _id } = user;
+      setUserId(_id);
+    }
+  }, []);
+
+  //handling create project button click
   const handdleProjectClick = () => {
-    //validate project name //sweet alert
-    // using axios call the backend's create project method with userId and entered project_name.
-    //server will return the created projectId save it to the session storage.
-    //display alert for any error
+    // validating project name
+    if (projectName === "" || projectName.length < 4) {
+      Swal.fire(
+        "Please enter the project name!",
+        "Your project name must contain at least 5 characters.",
+        "warning"
+      );
+    } else {
+      // Save project name to sessionStorage
+      sessionStorage.setItem("projectName", projectName);
+
+      // method to create the project using axios to call the backend
+      try {
+        axios
+          .post(
+            `${API_URL}/projects/createProject?userID=${userId}&projectname=${projectName}`
+          )
+          .then((res) => {
+            const responseProject = res.data;
+            let { _id } = responseProject;
+            setProjectId(_id);
+            setProjectData(_id);
+            handdleFileUpload();
+          })
+          .catch(function (error) {
+            if (error.response.status === 400) {
+              Swal.fire(
+                "Oops..., there was a problem",
+                "Enter a valid project name",
+                "error"
+              );
+            } else if (error.response.status === 409) {
+              Swal.fire(
+                "Oops..., there was a problem",
+                "Request conflict with the current state of the target resource",
+                "error"
+              );
+            }
+          });
+      } catch (error) {
+        console.log(error);
+        Swal.fire(
+          "Oops..., there was a problem",
+          "There was problem with the server",
+          "error"
+        );
+      }
+    }
+  };
+
+  // method to handdle file upload functions
+  function handdleFileUpload() {
     document.getElementById("initialContent").style.display = "none";
     document.getElementById("secodaryContent").style.display = "initial";
-  };
-  //handling next button press
-  const handdleNextClick = () => {
-    //validate file upload
-    history.push("/new/request");
-  };
+  }
+
+  //sets the project name to the session
+  function setProjectData(projectID) {
+    sessionStorage.setItem("projectId", projectID);
+  }
+
   //geting project name from the text fileld
   function getProjectName(project_name) {
     projectName = project_name;
@@ -67,10 +132,7 @@ const NewCard = () => {
       {/* components for File upload */}
       <div id="secodaryContent">
         <div id="fileUploadSpace">
-          <FileUpload />
-        </div>
-        <div id="nextBtn" onClick={() => handdleNextClick()}>
-          <CustomButton buttonName="Next" />
+          <FileUpload customerId={userId} ProjectId={projectId} />
         </div>
       </div>
     </div>

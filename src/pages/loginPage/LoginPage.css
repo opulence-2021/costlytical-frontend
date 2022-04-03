@@ -1,17 +1,17 @@
-  .signin {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    background-color: var(--darkBlue);
-    color: var(--white);
-    height: 100%;
-  }
+.signin {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: var(--darkBlue);
+  color: var(--white);
+  height: 100vh;
+}
 
-  hr.lineThing {
-    border: 0.5px solid white;
-    width: 440px;
-  }
+hr.lineThing {
+  border: 0.5px solid white;
+  width: 440px;
+}
 
 #cardBgSignIn {
   margin-top: 18px;
@@ -20,35 +20,35 @@
 }
 
 #textOrganization {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 45%;
-    height: 469px;
-    margin-top: 240px;
-    margin-left: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 45%;
+  height: 469px;
+  margin-top: 240px;
+  margin-left: 90px;
 }
 
 #titleOne {
-    font-weight: 100px;
-    font-size: 40px;
-    margin-top: 60px;
-    margin-left: 10px;
-    margin-right: 10px;    
-  }
+  font-weight: 100px;
+  font-size: 40px;
+  margin-top: 60px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
 
-  #titleTwo {
-    font-weight: 600;
-    font-size: var(--fontSuperbig);
-    margin-left: 10px;
-    margin-right: 10px; 
-    margin-bottom: 15px;   
-  }
+#titleTwo {
+  font-weight: 600;
+  font-size: var(--fontSuperbig);
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
 
-  #titleThree {
-    font-weight: 100px;
-    font-size: var(--fontMedium);
-    margin-top: 15px;
-    margin-left: 10px;
-    margin-right: 10px;    
-  }
+#titleThree {
+  font-weight: 100px;
+  font-size: var(--fontMedium);
+  margin-top: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+}

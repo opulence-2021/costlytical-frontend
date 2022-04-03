@@ -15,16 +15,46 @@ const ModelDetails = (props) => {
     model_quantity,
   } = props;
 
+  //method to update layer height
+  function UpdateLayerHeight(event) {
+    event.preventDefault();
+    let modelDetails = JSON.parse(sessionStorage.NewModels);
+    let targetIndex = modelDetails.findIndex((x) => x._id === model_Number);
+    modelDetails[targetIndex]["layerHeight"] = Number(event.target.value);
+    //updating session storage
+    sessionStorage.setItem("NewModels", JSON.stringify(modelDetails));
+  }
+
+  //method to update material
+  function UpdateMaterial(event) {
+    event.preventDefault();
+    let modelDetails = JSON.parse(sessionStorage.NewModels);
+    let targetIndex = modelDetails.findIndex((x) => x._id === model_Number);
+    modelDetails[targetIndex]["materialName"] = event.target.value;
+    //updating session storage
+    sessionStorage.setItem("NewModels", JSON.stringify(modelDetails));
+  }
+
+  //method to update quantity
+  function UpdateQuantity(event) {
+    event.preventDefault();
+    let modelDetails = JSON.parse(sessionStorage.NewModels);
+    let targetIndex = modelDetails.findIndex((x) => x._id === model_Number);
+    modelDetails[targetIndex]["modelQuantity"] = Number(event.target.value);
+    //updating session storage
+    sessionStorage.setItem("NewModels", JSON.stringify(modelDetails));
+  }
+
   return (
     <div id="modelContainer">
       <div class="modelItem">
-        <h4>{model_Number}</h4>
+        <h4>{model_Number.slice(8, 24)}</h4>
       </div>
       <div class="modelItem">
         <h4>{model_Name}</h4>
       </div>
       <div class="modelItem">
-        <select id="materialSelect">
+        <select id="materialSelect" onChange={(e) => UpdateMaterial(e)}>
           {material &&
             material.map((materialName) => {
               return <option value={materialName}>{materialName}</option>;
@@ -32,11 +62,11 @@ const ModelDetails = (props) => {
         </select>
       </div>
       <div class="modelItem">
-        <select id="layerSelect">
-          <option value="0.28mm">0.28mm</option>
-          <option value="0.20mm">0.20mm</option>
-          <option value="0.12mm">0.12mm</option>
-          <option value="AUTO">AUTO</option>
+        <select id="layerSelect" onChange={(e) => UpdateLayerHeight(e)}>
+          <option value="0.28">0.28mm</option>
+          <option value="0.2">0.20mm</option>
+          <option value="0.12">0.12mm</option>
+          {/* <option value="AUTO">AUTO</option> */}
         </select>
       </div>
       <div class="modelItem">
@@ -47,6 +77,7 @@ const ModelDetails = (props) => {
           max="1000"
           step="1"
           defaultValue="1"
+          onChange={(e) => UpdateQuantity(e)}
         />
       </div>
     </div>
