@@ -78,17 +78,11 @@ const PendingConfirmation = () => {
         <SideBarPending />
       </div>
       <div className="container__pending">
-<<<<<<< HEAD
-        <h1 className="container__pending__title">Project Pending Confirmation</h1>
-        <div className="container__table">
-          <Table list={list} />
-=======
         <h1 className="container__pending__title">
           Project Pending Confirmation
         </h1>
         <div className="container__table">
           <Table list={projects} />
->>>>>>> e662a3de0e2537ab59f23b89cfd5b8cdd32575f1
         </div>
       </div>
     </div>
