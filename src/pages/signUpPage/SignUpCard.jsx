@@ -15,7 +15,7 @@ import CustomButton from "../../components/CustomButton";
 import PasswordField from "../../components/PasswordField";
 
 const SignUpCard = () => {
-  const alert = useAlert();
+  const customAlert = useAlert();
   const history = useHistory();
 
   //user Details
@@ -29,20 +29,163 @@ const SignUpCard = () => {
   let userNumber = "";
   let userPasswordOne = "";
   let userPasswordTwo = "";
+  const newUser = {
+    firstName: "First",
+    lastName: "Second",
+    email: "sample@gmail.com",
+    addressLine1: "Nc 10012",
+    password: "12345678",
+    addressLine2: "New York",
+    country: "United States",
+    mobileNumber: 773523893,
+  };
 
-  //   //email regex
-  //   const emailReg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  //email regex
+  const emailReg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-  //   //sets the user details to the session storage and move user to home page
-  //   function setUserData(userData) {
-  //     sessionStorage.setItem("user", JSON.stringify(userData));
-  //     history.push("/home");
-  //   }
+  //sets the user details to the session storage and move user to home page
+  function setUserData(userData) {
+    sessionStorage.setItem("user", JSON.stringify(userData));
+  }
 
   //handling the signUp button press
   const handleSignUpClick = () => {
     console.log("Submit");
+    if (validateForm()) {
+      // method to add user details using axios to call the backend
+      try {
+        const config = { headers: { "Content-Type": "application/json" } };
+        axios
+          .post(`${API_URL}/user/createUser`, newUser, config)
+          .then(async (res) => {
+            let userInfo = res.data;
+            console.log(userInfo);
+            setUserData(userInfo);
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Account Created Successfully",
+              showConfirmButton: false,
+              timer: 2000,
+            });
+            // method to move user to home page
+            setTimeout(() => history.push("/home"), 2500);
+          })
+          .catch(function (error) {
+            if (error.response.status === 400) {
+              Swal.fire(
+                "Oops..., there was a problem",
+                "Enter a valid user",
+                "error"
+              );
+            } else if (error.response.status === 409) {
+              Swal.fire(
+                "Oops..., there was a problem",
+                "Server cannot find the requested resource",
+                "error"
+              );
+            }
+          });
+      } catch (error) {
+        console.log(error);
+        Swal.fire(
+          "Oops..., there was a problem",
+          "There was problem with the server",
+          "error"
+        );
+      }
+    }
   };
+
+  //function to validate fields and update the user object
+  function validateForm() {
+    if (validateFiled(userFirstName)) {
+      newUser.firstName = userFirstName;
+      if (validateFiled(userLastName)) {
+        newUser.lastName = userLastName;
+        if (validateEmail(userEmail)) {
+          newUser.email = userEmail;
+          if (validateNumber(userNumber)) {
+            newUser.mobileNumber = Number(userNumber);
+            if (validatePassword(userPasswordOne, userPasswordTwo)) {
+              newUser.password = userPasswordOne;
+              newUser.addressLine1 = userAddressOne;
+              newUser.addressLine2 = userAddressTwo;
+              newUser.country = userCountry;
+              return true;
+            } else {
+              customAlert.show("Please fill the password field");
+              return false;
+            }
+          } else {
+            customAlert.show("Please fill the contact number field");
+            return false;
+          }
+        } else {
+          customAlert.show("Please fill the email field correctly");
+          return false;
+        }
+      } else {
+        customAlert.show("Please fill the last name field");
+        return false;
+      }
+    } else {
+      customAlert.show("Please fill the first name field");
+      return false;
+    }
+  }
+  //validate textfields
+  function validateFiled(fieldValue) {
+    if (typeof fieldValue === "undefined") {
+      return false;
+    } else if (fieldValue === "" || fieldValue.length < 2) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  //function to validate email field
+  function validateEmail(email) {
+    if (typeof email === "undefined") {
+      return false;
+    } else if (email === "" || email.length < 2) {
+      return false;
+    } else if (!email.match(emailReg)) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  //function to validate number field
+  function validateNumber(phoneNumber) {
+    if (typeof phoneNumber === "undefined") {
+      return false;
+    } else if (phoneNumber === "" || phoneNumber.length < 9) {
+      return false;
+    } else if (isNaN(phoneNumber)) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  //function to validate password
+  function validatePassword(passOne, PassTwo) {
+    if (typeof passOne === "undefined" || typeof PassTwo === "undefined") {
+      return false;
+    } else if (passOne === "" || passOne.length < 5) {
+      return false;
+    } else if (PassTwo === "" || PassTwo.length < 5) {
+      return false;
+    } else if (!(passOne === PassTwo)) {
+      customAlert.show("Passwords does not match");
+      return false;
+    } else {
+      return true;
+    }
+  }
 
   //gets the user's first name from the text field
   function getFirstName(firstName) {
