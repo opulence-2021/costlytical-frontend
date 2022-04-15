@@ -23,6 +23,7 @@ const ProgressCircular = ({ progress }) => {
     alert("Hii");
   };
   const open = Boolean(anchorEl);
+  let progressLeft = 100 - progress;
   return (
     <>
       <Box sx={{ position: "relative", display: "inline-flex" }}>
@@ -80,13 +81,13 @@ const ProgressCircular = ({ progress }) => {
               color="text.primary"
               gutterBottom
             >
-              Model Printability Score is 75%
+              Model Printability Score is {progress}%
             </Typography>
 
             <Typography variant="body2" sx={{ padding: 1, minWidth: 75 }}>
-              25% of total printing time is wasted on printing support
-              materials. Try optimizing the model to prevent need for support
-              materials. .
+              {progressLeft}% of total printing time is wasted on printing
+              support materials. Try optimizing the model to prevent need for
+              support materials. .
             </Typography>
             <CardActions>
               <Button size="small">

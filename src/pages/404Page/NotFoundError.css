@@ -1,0 +1,40 @@
+#errorContent {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: rgb(235, 235, 235);
+}
+
+#errorImage {
+  height: 100%;
+  width: auto;
+}
+
+#sideContent_error {
+  margin-left: 10%;
+  font-size: var(--fontMedium);
+}
+
+#error_Description {
+  width: 80%;
+}
+
+#backToHomeBtn {
+  margin-top: 30px;
+  width: 200px;
+  height: 40px;
+  background-color: var(--blue);
+  border-radius: 8px;
+  transition: background-color 200ms;
+  color: var(--white);
+  font-size: var(--fontNormal);
+  font-weight: 400;
+  border: none;
+}
+
+#backToHomeBtn:hover {
+  background-color: var(--lightBlue);
+}
