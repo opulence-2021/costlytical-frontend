@@ -1,6 +1,6 @@
 // Routing
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Axios from '../src/api/api'
+import Axios from "../src/api/api";
 // Styles
 import "./App.css";
 // Components
@@ -26,11 +26,7 @@ function App() {
           <Route path="/new" exact component={CreateNewProject} />
           <Route path="/new/request" exact component={CreateNewProject_1} />
           <Route path="/pending" exact component={PendingConfirmation} />
-<<<<<<< HEAD
-          <Route path="/detail" exact component={PendingDetail} />
-=======
           <Route path="/detail/:_id" exact component={PendingDetail} />
->>>>>>> e662a3de0e2537ab59f23b89cfd5b8cdd32575f1
           <Route path="/awaiting" exact component={AwaitingProjects} />
           <Route path="/previous" exact component={PreviousProjects} />
         </Switch>
