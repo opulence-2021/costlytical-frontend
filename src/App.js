@@ -13,6 +13,7 @@ import PendingConfirmation from "./pages/pending/PendingConfirmation";
 import PendingDetail from "./pages/pending/PendingDetail";
 import AwaitingProjects from "./pages/AwaitingProjects";
 import PreviousProjects from "./pages/PreviousProjects";
+import NotFoundError from "./pages/404Page/NotFoundError";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/detail/:_id" exact component={PendingDetail} />
           <Route path="/awaiting" exact component={AwaitingProjects} />
           <Route path="/previous" exact component={PreviousProjects} />
+          <Route path="/*" exact component={NotFoundError} />
         </Switch>
       </Router>
     </div>
