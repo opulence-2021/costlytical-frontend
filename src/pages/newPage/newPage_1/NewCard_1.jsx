@@ -22,6 +22,7 @@ const NewCard_1 = () => {
   const [projectName, setProjectName] = useState("Project Name");
   const [models, setModels] = useState();
   const [subHeading, setSubHeading] = useState("Number of models");
+  const [stepperStep, setStepperStep] = useState(2);
 
   //method to get model details from the database
   useEffect(() => {
@@ -72,6 +73,7 @@ const NewCard_1 = () => {
   //sets the model details to the session storage
   function setModelDetails(modelData) {
     sessionStorage.setItem("NewModels", JSON.stringify(modelData));
+    setStepperStep(3);
   }
 
   //handling back button press
@@ -93,6 +95,7 @@ const NewCard_1 = () => {
 
   //handling Resquest button press
   const handdlRequestClick = async () => {
+    setStepperStep(4);
     // method to update model print details using axios to call the backend
     try {
       let modelContent = JSON.parse(sessionStorage.NewModels);
@@ -186,7 +189,7 @@ const NewCard_1 = () => {
         <PageSubHeading subHeading={subHeading} />
       </div>
       <div id="progressBar">
-        <ProgressBar />
+        <ProgressBar currentStep={stepperStep} />
       </div>
       <div id="tableHeader">
         <TableHeader />

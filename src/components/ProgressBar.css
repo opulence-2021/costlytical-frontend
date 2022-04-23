@@ -1,7 +1,12 @@
 #progressBar {
-  display: block;
-  background-color: var(--lightGray);
+  margin-top: 5px;
+  background-color: #f8f8f8;
   border-radius: 22px;
   width: 95%;
-  height: 70px;
+  min-height: 80px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#progressBar_container_inner {
+  margin-top: 12px;
 }
