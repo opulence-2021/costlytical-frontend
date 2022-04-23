@@ -1,0 +1,22 @@
+.projects-grid {
+	display: flex;
+	flex-direction: column;
+}
+
+.projects-grid-titles {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	color: black;
+	font-weight: 700;
+	margin-bottom: 10px;
+}
+
+.projects-grid-title {
+	flex-basis: 100%;
+}
+
+.projects-grid-items {
+	display: flex;
+	flex-direction: column;
+}

@@ -1,0 +1,29 @@
+.user-card {
+	display: flex;
+	background: #253869;
+	border-radius: 55px;
+	height: 70px;
+}
+
+.user-card-image {
+	width: 60px;
+	height: 60px;
+	background: url('https://www.nicepng.com/png/detail/136-1366211_group-of-10-guys-login-user-icon-png.png');
+	background-size: cover;
+	background-position: center;
+	border-radius: 50%;
+	margin: auto 5px;
+}
+.user-card-details {
+	display: flex;
+	flex-direction: column;
+	margin: auto 0px;
+}
+
+.user-card-icon {
+	margin: auto;
+}
+
+.m-0 {
+	margin: 0;
+}
