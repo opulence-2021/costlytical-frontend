@@ -85,7 +85,7 @@ const PendingConfirmation = () => {
           <Table list={projects} />
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

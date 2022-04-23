@@ -26,7 +26,7 @@ const SideBarPending = () => {
                     </div>
                 </Link>
                 <Link to="/new">
-                    <div className="nav__link" id="newNav">
+                    <div className="nav__link" style={{ borderBottom: 'solid var(--orange) 1px' }} id="newNav">
                         <img src={newI_o} class="nav__image" alt="new" />
                         <h2 className="nav__heading">Create New Project</h2>
                     </div>
@@ -39,7 +39,7 @@ const SideBarPending = () => {
                     </div>
                 </Link>
                 <Link to="/awaiting">
-                    <div className="nav__link" id="navAwaiting_1">
+                    <div className="nav__link" style={{ borderTop: 'solid var(--orange) 1px' }} id="navAwaiting_1">
                         <img src={awaiting} class="nav__image" alt="Awaiting" />
                         <h2 className="nav__heading">Awaiting Projects</h2>
                     </div>

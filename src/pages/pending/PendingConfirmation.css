@@ -4,7 +4,7 @@
 }
 .container__pending {
   background-color: var(--white);
-  margin: 1rem;
+  margin-top: 1rem;
   padding: 1rem;
   border-radius: 10px;
 }
