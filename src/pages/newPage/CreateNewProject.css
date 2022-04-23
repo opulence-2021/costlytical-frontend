@@ -3,5 +3,18 @@
   color: var(--white);
   height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+}
+
+#newSideBar {
+  margin-top: 10px;
+  height: 100%;
+}
+
+#cardBackground_new_Page {
+  margin-top: 50px;
+  margin-left: 18vw;
+  height: 93%;
+  background-color: var(--darkBlue);
+  width: 100vw;
 }
