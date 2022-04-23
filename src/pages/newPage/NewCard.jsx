@@ -20,6 +20,7 @@ const NewCard = () => {
   let projectName = "";
   const [userId, setUserId] = useState();
   const [projectId, setProjectId] = useState();
+  const [userStep, setUserStep] = useState(0);
 
   //method to get user ID from session storage
   useEffect(() => {
@@ -88,6 +89,7 @@ const NewCard = () => {
   function handdleFileUpload() {
     document.getElementById("initialContent").style.display = "none";
     document.getElementById("secodaryContent").style.display = "initial";
+    setUserStep(1);
   }
 
   //sets the project name to the session
@@ -107,7 +109,7 @@ const NewCard = () => {
         <PageHeading pagename="Create New Project" />
       </div>
       <div id="progressBar">
-        <ProgressBar />
+        <ProgressBar currentStep={userStep} />
       </div>
       {/* components for get project name */}
       <div id="initialContent">
