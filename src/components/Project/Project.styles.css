@@ -1,0 +1,26 @@
+.project-item {
+	display: flex;
+	justify-content: space-between;
+	color: black;
+	padding: 15px 5px;
+	background: white;
+	margin: 5px 0;
+	border-radius: 10px;
+	box-shadow: 1px 3px 5px #00000069;
+	text-decoration: none;
+}
+
+.project-item-value {
+	flex-basis: 100%;
+	font-weight: 600;
+	margin: auto;
+}
+
+.project-item-name {
+	font-weight: 700 !important;
+}
+
+.project-item-score {
+	display: flex;
+	justify-content: center;
+}
