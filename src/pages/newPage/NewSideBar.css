@@ -1,5 +1,6 @@
 /* side bar styles */
 #newSideBar {
+  position: fixed;
   width: 18vw;
   height: 100vh;
   background-color: var(--darkBlue);

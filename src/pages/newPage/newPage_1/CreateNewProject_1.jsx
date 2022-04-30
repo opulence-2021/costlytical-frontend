@@ -11,7 +11,7 @@ const CreateNewProject_1 = () => {
       <div id="newSideBar">
         <NewSideBar />
       </div>
-      <div id="cardBackground">
+      <div id="cardBackground_new_page_Two">
         <NewCard />
       </div>
     </div>

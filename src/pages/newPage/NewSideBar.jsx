@@ -33,7 +33,11 @@ const NewSideBar = () => {
           </div>
         </Link>
         <Link to="/pending">
-          <div className="navItem" id="navPending_1" style={{ borderTop: 'var(--white)', borderBottom: 'var(--white)' }}>
+          <div
+            className="navItem"
+            id="navPending_1"
+            style={{ borderTop: "var(--white)", borderBottom: "var(--white)" }}
+          >
             <img src={pending} class="navImage" alt="pending" />
             <h2 className="navHeading">Pending Confirmation</h2>
           </div>

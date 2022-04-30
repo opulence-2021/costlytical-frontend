@@ -101,7 +101,6 @@ const FileUpload = (props) => {
       const { filename, filePath } = res.data;
       setUploadedFile({ filename, filePath });
 
-      // add a progress bar for file upload %.
       //progress bar
       let timerInterval;
       Swal.fire({

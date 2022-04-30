@@ -1,16 +1,24 @@
+.container {
+  min-height: 100vh;
+}
 .container__one {
   display: flex;
-  background-color: var(--white);
   margin: 1rem 0rem;
   border-radius: 10px;
 }
 .nav {
   background-color: #13293d;
+  width: 18vw;
 }
 .container__body {
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  background-color: var(--white);
+}
+#main_container_body {
+  background-color: var(--white);
+  border-radius: 22px;
 }
 .container__body__title {
   background-color: var(--white);
@@ -43,14 +51,21 @@ h2 {
   border: var(--white);
 }
 .container__delivery {
+  display: flex;
+  flex-direction: column;
   background-color: var(--darkGray);
   border-radius: 10px;
+  width: 96%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
 }
 .box__store {
   background-color: var(--white);
   padding: 0.5rem 2rem;
   margin: 1rem 2rem;
   border-radius: 10px;
+  margin-top: 10px;
 }
 .box__input {
   background-color: var(--white);

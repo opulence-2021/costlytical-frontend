@@ -106,83 +106,88 @@ const PendingDetail = () => {
         <div className="nav">
           <SideBarPending />
         </div>
-        <div className="container__body">
-          <div className="container__body__title">
-            <div>
-              <h1>
-                <b>{thisProject.projectName}</b>
-              </h1>
-              <p className="title__created">
-                <b>Created By:</b> {thisProject.userId.slice(16, 24)}
-              </p>
+        <div id="main_container_body">
+          <div className="container_body">
+            <div className="container__body__title">
+              <div>
+                <h1>
+                  <b>{thisProject.projectName}</b>
+                </h1>
+                <p className="title__created">
+                  <b>Created By:</b> {thisProject.userId.slice(16, 24)}
+                </p>
+              </div>
+              <div className="title__estimated">
+                <h1>
+                  <b>Project Id:</b> {thisProject._id.slice(8, 24)}
+                </h1>
+              </div>
+              <div>
+                <h1 className="title__value">
+                  <b>Total Value: </b>Rs. {thisProject.projectTotalCost}
+                </h1>
+              </div>
             </div>
-            <div className="title__estimated">
-              <h1>
-                <b>Project Id:</b> {thisProject._id.slice(8, 24)}
-              </h1>
+            <div className="table__body">
+              <TableDetail list={models} />
             </div>
-            <div>
-              <h1 className="title__value">
-                <b>Total Value: </b>Rs. {thisProject.projectTotalCost}
-              </h1>
+            <div className="container__decline">
+              <button onClick={handleDecline} className="button__decline">
+                Decline Offer
+              </button>
             </div>
-          </div>
-          <div className="table__body">
-            <TableDetail list={models} />
-          </div>
-          <div className="container__decline">
-            <button onClick={handleDecline} className="button__decline">
-              Decline Offer
-            </button>
-          </div>
-          <div className="container__delivery">
-            <div className="box__store">
-              <FormControlLabel
-                control={<Checkbox defaultChecked />}
-                label="Store pick-up"
-              />
-            </div>
-            <div className="box__input">
-              <div className="box__option">
+            <div className="container__delivery">
+              <div className="box__store">
                 <FormControlLabel
                   control={<Checkbox defaultChecked />}
-                  label="Order delivered to your location"
-                />
-                <FormControlLabel
-                  control={<Checkbox defaultChecked />}
-                  label="Use address in the Profile"
+                  label="Store pick-up"
                 />
               </div>
-              <h3 className="title__location">Location</h3>
-              <TextField
-                sx={{ marginRight: 4 }}
-                id="addressLine1"
-                label="Address Line 1"
-                variant="standard"
-              />
-              <TextField
-                sx={{ marginRight: 4 }}
-                id="addressLine2"
-                label="Address Line 2"
-                variant="standard"
-              />
-              <TextField
-                sx={{ marginRight: 4 }}
-                id="city"
-                label="City"
-                variant="standard"
-              />
-              <TextField
-                sx={{ marginRight: 4 }}
-                id="country"
-                label="Country"
-                variant="standard"
-              />
-            </div>
-            <div className="container__confirm">
-              <button onClick={() => handleConfirm()} className="btn__confirm">
-                Confirm Order
-              </button>
+              <div className="box__input">
+                <div className="box__option">
+                  <FormControlLabel
+                    control={<Checkbox defaultChecked />}
+                    label="Order delivered to your location"
+                  />
+                  <FormControlLabel
+                    control={<Checkbox defaultChecked />}
+                    label="Use address in the Profile"
+                  />
+                </div>
+                <h3 className="title__location">Location</h3>
+                <TextField
+                  sx={{ marginRight: 4 }}
+                  id="addressLine1"
+                  label="Address Line 1"
+                  variant="standard"
+                />
+                <TextField
+                  sx={{ marginRight: 4 }}
+                  id="addressLine2"
+                  label="Address Line 2"
+                  variant="standard"
+                />
+                <TextField
+                  sx={{ marginRight: 4 }}
+                  id="city"
+                  label="City"
+                  variant="standard"
+                />
+                <TextField
+                  sx={{ marginRight: 4 }}
+                  id="country"
+                  label="Country"
+                  variant="standard"
+                />
+              </div>
+              <div className="container__confirm">
+                <button
+                  onClick={() => handleConfirm()}
+                  className="btn__confirm"
+                >
+                  Confirm Order
+                </button>
+              </div>
             </div>
           </div>
         </div>
