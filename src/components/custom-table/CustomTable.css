@@ -1,0 +1,33 @@
+table {
+  border-collapse: separate;
+  border-spacing: 0 1em;
+}
+tr:not(:first-child) {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-radius: 20px;
+  /* color:rgba(0, 0, 0, 0.486) */
+}
+tr {
+  white-space: nowrap;
+  width: 100%;
+}
+th {
+  padding: 1rem 3rem;
+}
+.detail__button {
+  background-color: var(--blue);
+  padding: 0.5rem 1rem;
+  color: var(--white);
+  border-radius: 10px;
+  cursor: pointer;
+  border: white;
+  width: 100%;
+  transition: all 0.2s;
+}
+.detail__button:hover {
+  padding: 1rem;
+}
+.td {
+  padding: 1rem 4rem;
+  width: 100%;
+}

@@ -1,0 +1,13 @@
+.btn {
+  padding: 0.75em 1.5em;
+  background-color: var(--blue);
+  color: #ffffff;
+  border-radius: 0.2em;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: #ffffff;
+  background-color: var(--darkBlue);
+}

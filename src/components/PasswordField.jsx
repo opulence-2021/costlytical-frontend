@@ -6,7 +6,7 @@ const PasswordField = (props) => {
   const { labelname, placeholderText, getData, textFieldID } = props;
   return (
     <div id="passwordField">
-      <label for="name" id="passwordLabel">
+      <label htmlFor="name" id="passwordLabel">
         {labelname}{" "}
       </label>
       <br />
