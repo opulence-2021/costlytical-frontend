@@ -1,0 +1,21 @@
+.app-layout {
+  background-color: var(--darkBlue);
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  padding: 20px 20px 20px 0;
+}
+
+.app-sidebar {
+  width: 18vw;
+  min-width: 280px;
+}
+
+.app-content {
+  background-color: #ffffff;
+  border-radius: 10px;
+  flex: 1;
+  height: 100%;
+  overflow-y: auto;
+  padding: 30px;
+}

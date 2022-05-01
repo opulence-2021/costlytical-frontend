@@ -1,0 +1,51 @@
+.logo-wrapper {
+  display: block;
+  margin-bottom: 50px;
+}
+
+.nav-item {
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+  display: block;
+  padding: 15px 5px 15px 30px;
+  transition: color 0.1s linear;
+}
+
+.nav-item:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.nav-item::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 6px;
+  height: 100%;
+  background-color: var(--orange);
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  color: var(--orange);
+}
+
+.nav-item:hover::before,
+.nav-item.nav-item.active::before {
+  opacity: 1;
+}
+
+.nav-item-text {
+  margin-left: 15px;
+}
+
+.nav-item-icon {
+  display: inline-block;
+  width: 30px;
+  font-size: 22px;
+}

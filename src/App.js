@@ -11,9 +11,9 @@ import CreateNewProject from "./pages/newPage/CreateNewProject";
 import CreateNewProject_1 from "./pages/newPage/newPage_1/CreateNewProject_1";
 import PendingConfirmation from "./pages/pending/PendingConfirmation";
 import PendingDetail from "./pages/pending/PendingDetail";
-import AwaitingProjects from "./pages/AwaitingProjects";
-// import PreviousProjects from "./pages/PreviousProjects";
 import PreviousProjects from "./pages/previous/PreviousProjects";
+import AwaitingProjectsPage from "./pages/awaiting-projects-page/AwaitingProjectsPage";
+import ProjectDetailsPage from "./pages/project-details-page/ProjectDetailsPage";
 import NotFoundError from "./pages/404Page/NotFoundError";
 import PreviousProject from "./pages/previous/PreviousProject";
 
@@ -30,8 +30,9 @@ function App() {
           <Route path="/new/request" exact component={CreateNewProject_1} />
           <Route path="/pending" exact component={PendingConfirmation} />
           <Route path="/detail/:_id" exact component={PendingDetail} />
-          <Route path="/awaiting" exact component={AwaitingProjects} />
           <Route path="/previous" exact component={PreviousProjects} />
+          <Route path="/awaiting" exact component={AwaitingProjectsPage} />
+          <Route path="/awaiting/:id" exact component={ProjectDetailsPage} />
           <Route
             exact
             path='/projects/:id'

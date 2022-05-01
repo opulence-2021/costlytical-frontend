@@ -1,57 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { API_URL } from "../../api";
+
 //alerts
 import { useAlert } from "react-alert";
 import Swal from "sweetalert2";
+
 //Routing
 import { useHistory } from "react-router-dom";
+
 // Styles
 import "./LoginCard.css";
+
 // Components
 import logo from "../../images/logo.png";
-import SignInTextField from "../../components/SignInTextField";
 import CustomButton from "../../components/CustomButton";
-import PasswordField from "../../components/PasswordField";
 
 const LoginCard = () => {
   const alert = useAlert();
   const history = useHistory();
-  let eMail = "email";
-  let passWord = "pass";
+
   //email regex
   const emailReg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-  //validator function
-  const validate = (valueE, valueP) => {
-    let passCheck = true;
-    let emaCheck = true;
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    //grabs the value of the email
-    let Mail = valueE;
-    //grabs the value of the password
-    let Passs = valueP;
+  //validator function, amanda@gmail.com
+  const validate = (email, password) => {
+    let passCheck = true;
+    let emailCheck = true;
 
     //email checker
-    if (Mail === "") {
+    if (email === "") {
       alert.show("Incorrect Email Format!");
-      emaCheck = false;
-    } else if (Mail.length < 10) {
+      emailCheck = false;
+    } else if (email.length < 10) {
       alert.show("Incorrect Email Format!");
-      emaCheck = false;
-    } else if (!Mail.match(emailReg)) {
+      emailCheck = false;
+    } else if (!email.match(emailReg)) {
       alert.show("Incorrect Email Format!");
-      emaCheck = false;
+      emailCheck = false;
     } else {
-      emaCheck = true;
+      emailCheck = true;
     }
 
     //password checker
-    if (emaCheck) {
-      if (Passs === "") {
+    if (emailCheck) {
+      if (password === "") {
         alert.show("Password must be entered!");
         passCheck = false;
-      } else if (Passs.length < 5) {
+      } else if (password.length < 5) {
         alert.show("Password must be entered!");
         passCheck = false;
       } else {
@@ -60,11 +59,11 @@ const LoginCard = () => {
     }
 
     //function to send the api request to validate credentials and get user data
-    if (emaCheck === true && passCheck === true) {
+    if (emailCheck === true && passCheck === true) {
       try {
         axios
           .post(
-            `${API_URL}/user/login?mailAdress=${eMail}&password=${passWord}`
+            `${API_URL}/user/login?mailAdress=${email}&password=${password}`
           )
           .then((res) => {
             const responseLogin = res.data;
@@ -93,50 +92,49 @@ const LoginCard = () => {
 
   //handling the signIn button press
   const handleSigninClick = () => {
-    validate(eMail, passWord);
+    validate(email, password);
   };
-
-  //handling the signUp button press
-  const handleSignUpClick = () => {
-    history.push("/signUp");
-  };
-
-  //gets the user's name from the text field
-  function geteMail(em) {
-    eMail = em;
-    return eMail;
-  }
-  //gets the password from the text field
-  function getPasswrd(passwrd) {
-    passWord = passwrd;
-    return passWord;
-  }
 
   return (
     <div id="blockSide">
       <img src={logo} id="logoMain" alt="Costlytical logo" />
       <div id="theRest">
+        {/* Email Field */}
         <div id="Username">
-          <SignInTextField
-            labelname="Email"
-            placeholderText="example@gmail.com"
-            textFieldID="email"
-            getData={geteMail}
-          />
+          <label htmlFor="email" id="email" style={{ display: "block" }}>
+            Email
+          </label>
+          <input
+            type="text"
+            id="email"
+            className="CustomtextField"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+            placeholder="example@gmail.com"
+          ></input>
         </div>
+
+        {/* Password Field */}
         <div id="Password">
-          <PasswordField
-            labelname="Password"
-            placeholderText="password"
-            textFieldID="pass"
-            getData={getPasswrd}
-          />
+          <label htmlFor="password" id="password" style={{ display: "block" }}>
+            Password
+          </label>
+          <input
+            type="password"
+            id="password"
+            className="passwordField"
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+            placeholder={password}
+          ></input>
         </div>
         <div id="ButtonsAlignment">
-          <div id="signInButton" onClick={() => handleSigninClick()}>
+          <div id="signInButton" div onClick={() => handleSigninClick()}>
             <CustomButton buttonName="Sign In" />
           </div>
-          <div id="signUp" onClick={() => handleSignUpClick()}>
+          <div id="signUp">
             <CustomButton buttonName="Sign Up" />
           </div>
         </div>
