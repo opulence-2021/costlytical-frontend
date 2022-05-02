@@ -89,7 +89,10 @@ const LoginCard = () => {
     sessionStorage.setItem("user", JSON.stringify(userData));
     history.push("/home");
   }
-
+  //handling the signup button press
+  const handleSignupClick = () => {
+    history.push("/signUp");
+  };
   //handling the signIn button press
   const handleSigninClick = () => {
     validate(email, password);
@@ -134,7 +137,7 @@ const LoginCard = () => {
           <div id="signInButton" div onClick={() => handleSigninClick()}>
             <CustomButton buttonName="Sign In" />
           </div>
-          <div id="signUp">
+          <div id="signUp" div onClick={() => handleSignupClick()}>
             <CustomButton buttonName="Sign Up" />
           </div>
         </div>
